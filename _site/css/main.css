@@ -45,16 +45,16 @@ button {
   outline: none; }
 
 hr {
-  border: 0;
-  border-top: 1px solid #eee;
-  margin: 20px 0; }
+  border: none;
+  border-top: 1px solid #333;
+  margin: 20px 0;
+  height: 1px; }
 
 h1 {
   font-size: 30px; }
 
 h2 {
   font-size: 26px;
-  border-bottom: 1px solid #eee;
   margin: 50px 0 25px; }
 
 h3 {
@@ -321,16 +321,16 @@ header {
       color: #fc0; }
     .page .left ul li {
       line-height: 1.8;
-      color: #888888; }
+      color: #ddd; }
       .page .left ul li time {
         display: inline-block;
-        width: 135px; }
+        width: 86px; }
       .page .left ul li .title {
         font-weight: bold;
         color: #fc0;
         transition: 0.3s ease; }
         .page .left ul li .title:hover {
-          color: #4d6dad; }
+          color: #f90; }
       .page .left ul li .categories {
         padding: 0 15px; }
         .page .left ul li .categories a {
@@ -745,7 +745,7 @@ pre {
     .page[index] .left .pagination .page_number {
       padding: 0 5px; }
     .page[index] .left .pagination .disable {
-      color: #cbcbcb; }
+      color: #333; }
 .page[index] .right .wrap .side {
   margin-bottom: 20px;
   padding-bottom: 0;
@@ -933,13 +933,13 @@ pre {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3), 0 0 30px rgba(10, 10, 0, 0.1) inset; }
   .back-to-top a {
     display: block;
-    background-color: #eee;
+    background-color: #444;
     width: 38px;
     height: 38px;
     line-height: 38px;
     text-align: center;
     font-size: 20px;
-    color: #b4b4b4; }
+    color: #ddd; }
 
 .back-to-top-show {
   visibility: visible;

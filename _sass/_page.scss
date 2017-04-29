@@ -11,7 +11,6 @@
     width: 1140px;
     box-sizing: border-box;
     margin: 0 auto;
-    // word-break: break-all;
     .left {
         width: 75%;
         float: left;
@@ -38,17 +37,17 @@
             }
             li {
                 line-height: 1.8;
-                color: #888888;
+                color: #ddd;
                 time {
                     display: inline-block;
-                    width: 135px;
+                    width: 86px;
                 }
                 .title {
                     font-weight: bold;
                     color: #fc0;
                     transition: 0.3s ease;
                     &:hover {
-                        color: #4d6dad;
+                        color: #f90;
                     }
                 }
                 .categories {
