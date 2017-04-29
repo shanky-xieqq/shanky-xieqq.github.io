@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JavaScript 作用域和作用域链</title>
+    <meta name="description" content="JavaScript 作用域和作用域链学习笔记。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="https://gaohaoyang.github.io/2015/05/20/scope/">
+    <link rel="alternate" type="application/rss+xml" title="Shanky" href="https://gaohaoyang.github.io/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cf8506e0ef223e57ff6239944e5d46a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-72449510-4', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand"><img src="/img/logo.png?"></a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        主页
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            档案
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            分类
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            标签
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            关于
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>JavaScript 作用域和作用域链</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2015-05-20
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  
+    
+        <a href="/category/#JavaScript" title="Category: JavaScript" rel="category">JavaScript</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#JavaScript" title="Tag: JavaScript" rel="tag">JavaScript</a-->
+        <a href="/tag/#JavaScript" title="Tag: JavaScript" rel="tag">JavaScript</a>&nbsp;
+    
+        <!--a href="/tag/#%E4%BD%9C%E7%94%A8%E5%9F%9F" title="Tag: 作用域" rel="tag">作用域</a-->
+        <a href="/tag/#作用域" title="Tag: 作用域" rel="tag">作用域</a>&nbsp;
+    
+        <!--a href="/tag/#%E6%85%95%E8%AF%BE%E7%BD%91" title="Tag: 慕课网" rel="tag">慕课网</a-->
+        <a href="/tag/#慕课网" title="Tag: 慕课网" rel="tag">慕课网</a>&nbsp;
+    
+        <!--a href="/tag/#ife" title="Tag: ife" rel="tag">ife</a-->
+        <a href="/tag/#ife" title="Tag: ife" rel="tag">ife</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#javascript-" id="markdown-toc-javascript-">JavaScript 作用域</a>    <ul>
+      <li><a href="#global-scope" id="markdown-toc-global-scope">全局作用域(Global Scope)</a></li>
+      <li><a href="#local-scope" id="markdown-toc-local-scope">局部作用域(Local Scope)</a></li>
+      <li><a href="#section" id="markdown-toc-section">再补充几个例子</a></li>
+    </ul>
+  </li>
+  <li><a href="#scope-chain" id="markdown-toc-scope-chain">作用域链(Scope Chain)</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">例子</a>        <ul>
+          <li><a href="#section-2" id="markdown-toc-section-2">特例-构造器创建的函数</a></li>
+        </ul>
+      </li>
+      <li><a href="#section-3" id="markdown-toc-section-3">延长作用域链</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">代码优化</a></li>
+    </ul>
+  </li>
+  <li><a href="#vo--ao" id="markdown-toc-vo--ao">VO &amp; AO</a>    <ul>
+      <li><a href="#section-5" id="markdown-toc-section-5">变量初始化阶段</a></li>
+      <li><a href="#section-6" id="markdown-toc-section-6">代码执行阶段</a></li>
+      <li><a href="#section-7" id="markdown-toc-section-7">例</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-8" id="markdown-toc-section-8">参考资料</a></li>
+</ul>
+
+<h2 id="javascript-">JavaScript 作用域</h2>
+
+<p>作用域就是变量与函数的可访问范围。在JavaScript中，变量的作用域有全局作用域和局部作用域两种。</p>
+
+<hr />
+
+<h3 id="global-scope">全局作用域(Global Scope)</h3>
+
+<p>在代码中任何地方都能访问到的对象拥有全局作用域，一般来说以下 3 种情形拥有全局作用域。</p>
+
+<ol>
+  <li>最外层函数和在最外层函数外面定义的变量拥有全局作用域</li>
+</ol>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">outVariable</span> <span class="o">=</span> <span class="s2">"我是最外层变量"</span><span class="p">;</span> <span class="c1">//最外层变量</span>
+<span class="kd">function</span> <span class="nx">outFun</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//最外层函数</span>
+    <span class="kd">var</span> <span class="nx">inVariable</span> <span class="o">=</span> <span class="s2">"内层变量"</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">innerFun</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//内层函数</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">inVariable</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">innerFun</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">outVariable</span><span class="p">);</span> <span class="c1">//我是最外层变量</span>
+<span class="nx">outFun</span><span class="p">();</span> <span class="c1">//内层变量</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">inVariable</span><span class="p">);</span> <span class="c1">//inVariable is not defined</span>
+<span class="nx">innerFun</span><span class="p">();</span> <span class="c1">//innerFun is not defined</span>
+</code></pre></div>
+
+<ol>
+  <li>所有末定义直接赋值的变量自动声明为拥有全局作用域</li>
+</ol>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">function</span> <span class="nx">outFun2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">variable</span> <span class="o">=</span> <span class="s2">"未定义直接赋值的变量"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">inVariable2</span> <span class="o">=</span> <span class="s2">"内层变量2"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">outFun2</span><span class="p">();</span><span class="c1">//要先执行这个函数，否则根本不知道里面是啥</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">variable</span><span class="p">);</span> <span class="c1">//未定义直接赋值的变量</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">inVariable2</span><span class="p">);</span> <span class="c1">//inVariable2 is not defined</span>
+</code></pre></div>
+
+<ol>
+  <li>所有window对象的属性拥有全局作用域 <br />
+ window对象的内置属性都拥有全局作用域，例如 <code class="highlighter-rouge">window.name</code>、<code class="highlighter-rouge">window.location</code>、<code class="highlighter-rouge">window.top</code> 等。</li>
+</ol>
+
+<h3 id="local-scope">局部作用域(Local Scope)</h3>
+
+<p>和全局作用域相反，局部作用域一般只在固定的代码片段内可访问到，最常见的例如函数内部，所有在一些地方也会看到有人把这种作用域称为函数作用域
+。</p>
+
+<p>如 1. 中的变量 <code class="highlighter-rouge">inVariable</code> 和函数 <code class="highlighter-rouge">innerFun</code> 都只拥有局部作用域。</p>
+
+<hr />
+
+<h3 id="section">再补充几个例子</h3>
+
+<ul>
+  <li>全局作用域，函数作用域，eval作用域</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// 全局</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span><span class="c1">// 函数</span>
+<span class="p">})();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 10</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// error, b in not defined</span>
+
+<span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 1;"</span><span class="p">);</span> <span class="c1">// eval</span>
+</code></pre></div>
+
+<ul>
+  <li>JavaScript 中没有块作用域</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">item</span> <span class="k">in</span> <span class="p">{</span>
+    <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="na">b</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">})</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span> <span class="c1">// item still in scope</span>
+</code></pre></div>
+
+<hr />
+
+<h2 id="scope-chain">作用域链(Scope Chain)</h2>
+
+<p>在 JavaScript 中，函数也是对象，实际上，JavaScript 里一切都是对象。函数对象和其它对象一样，拥有可以通过代码访问的属性和一系列仅供 JavaScript 引擎访问的内部属性。其中一个内部属性是 [[Scope]]，由 ECMA-262 标准第三版定义，该内部属性包含了函数被创建的作用域中对象的集合，这个集合被称为函数的作用域链，它决定了哪些数据能被函数访问。</p>
+
+<ol>
+  <li>在函数创建时，它的作用域链中会填入一个全局对象，该全局对象包含了所有全局变量。</li>
+  <li>函数执行时会创建一个称为“运行期上下文(execution context)”的内部对象，运行期上下文定义了函数执行时的环境。每个运行期上下文都有自己的作用域链，用于标识符解析，当运行期上下文被创建时，而它的作用域链初始化为当前运行函数的[[Scope]]所包含的对象。</li>
+  <li>这些值按照它们出现在函数中的顺序被复制到运行期上下文的作用域链中。它们共同组成了一个新的对象，叫“活动对象(activation object)”，该对象包含了函数的所有局部变量、命名参数、参数集合以及this，然后此对象会被推入作用域链的前端。</li>
+  <li>当运行期上下文被销毁，活动对象也随之销毁。</li>
+</ol>
+
+<p>在函数执行过程中，每遇到一个变量，都会经历一次标识符解析过程以决定从哪里获取和存储数据。该过程从作用域链头部，也就是从活动对象开始搜索，查找同名的标识符，如果找到了就使用这个标识符对应的变量，如果没找到继续搜索作用域链中的下一个对象，如果搜索完所有对象都未找到，则认为该标识符未定义。函数执行过程中，每个标识符都要经历这样的搜索过程。</p>
+
+<hr />
+
+<h3 id="section-1">例子</h3>
+
+<p>举一个作用域链的例子。</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">outVariable</span> <span class="o">=</span> <span class="s2">"我是最外层变量"</span><span class="p">;</span> <span class="c1">//最外层变量</span>
+<span class="kd">function</span> <span class="nx">outFun</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//最外层函数</span>
+    <span class="kd">var</span> <span class="nx">inVariable</span> <span class="o">=</span> <span class="s2">"内层变量"</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">innerFun</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//内层函数</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">inVariable</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">tempVariable</span> <span class="o">=</span> <span class="nx">inVariable</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">innerFun</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>对最开始的代码稍加修改</p>
+
+<p>其作用域链为：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>window
+├──outVariable
+└──outFun()
+   ├──inVariable
+   └──innerFun()
+      └──tempVariable
+</code></pre></div>
+
+<p>对于 <code class="highlighter-rouge">innerFun()</code>，其作用域链包含 3 个对象：innerFun() 自己的变量对象、outFun()的变量对象、全局变量对象。</p>
+
+<hr />
+
+<h4 id="section-2">特例-构造器创建的函数</h4>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">function</span> <span class="nx">outer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">"console.log(typeof i);"</span><span class="p">);</span>
+    <span class="nx">func</span><span class="p">();</span> <span class="c1">// undefined</span>
+<span class="p">}</span>
+<span class="nx">outer</span><span class="p">();</span>
+</code></pre></div>
+
+<p>通过构造器创建的函数是访问不到外层的局部变量的。</p>
+
+<hr />
+
+<h3 id="section-3">延长作用域链</h3>
+
+<p>有些语句可以在作用域链的前端临时增加一个变量对象，该变量对象会在代码执行后被移除。有两种情况下会发生这种现象。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">try-catch</code> 语句中的 <code class="highlighter-rouge">catch</code> 块</li>
+  <li><code class="highlighter-rouge">with</code> 语句</li>
+</ul>
+
+<p>对 with 来说，将会指定对象添加到作用域链中。对 catch 来说，会创建一个新的变量对象，其中包含的是被抛出的错误对象的声明。</p>
+
+<hr />
+
+<h3 id="section-4">代码优化</h3>
+
+<p>从作用域链的结构可以看出，在运行期上下文的作用域链中，标识符所在的位置越深，读写速度就会越慢。因为全局变量总是存在于运行期上下文作用域链的最末端，因此在标识符解析的时候，查找全局变量是最慢的。所以，在编写代码的时候应尽量少使用全局变量，尽可能使用局部变量。一个好的经验法则是：如果一个跨作用域的对象被引用了一次以上，则先把它存储到局部变量里再使用。</p>
+
+<hr />
+
+<h2 id="vo--ao">VO &amp; AO</h2>
+
+<h3 id="section-5">变量初始化阶段</h3>
+
+<ul>
+  <li>
+    <p>JS解释器如何找到我们定义的函数和变量？</p>
+
+    <p>变量对象 (Variable Object, 缩写为VO) 是一个抽象概念中的“对象”，它用于存储执行上下文中的：</p>
+
+    <ol>
+      <li>变量</li>
+      <li>函数声明</li>
+      <li>函数参数</li>
+    </ol>
+  </li>
+  <li>
+    <p>VO按照如下顺序填充:</p>
+
+    <ol>
+      <li>函数参数 (若未传入，初始化该参数值为undefined)</li>
+      <li>函数声明 (若发生命名冲突，会覆盖)</li>
+      <li>变量声明 (初始化变量值为 undefined，若发生命名冲突，会忽略。)</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">x</span><span class="p">()</span> <span class="p">{};</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">foo</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span> <span class="c1">// funtion x()</span>
+
+<span class="kd">function</span> <span class="nx">foo2</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">foo2</span><span class="p">(</span><span class="mi">110</span><span class="p">);</span> <span class="c1">// 50</span>
+
+<span class="kd">function</span> <span class="nx">foo3</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">x</span><span class="p">()</span> <span class="p">{};</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">foo3</span><span class="p">();</span> <span class="c1">// 100</span>
+
+<span class="kd">function</span> <span class="nx">foo4</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">x</span><span class="p">()</span> <span class="p">{};</span>
+    <span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">foo4</span><span class="p">();</span> <span class="c1">// funtion x()</span>
+</code></pre></div>
+
+<p><strong>注：函数表达式不会影响 VO</strong></p>
+
+<hr />
+
+<h3 id="section-6">代码执行阶段</h3>
+
+<p>给 VO 对象内的变量赋值。</p>
+
+<p>VO 变为 AO （活动对象 activation object）。</p>
+
+<hr />
+
+<h3 id="section-7">例</h3>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="nx">alert</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// function</span>
+
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// 10</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">x</span><span class="p">()</span> <span class="p">{}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// 20</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">alert</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// undefined</span>
+</code></pre></div>
+
+<hr />
+
+<h2 id="section-8">参考资料</h2>
+
+<ul>
+  <li><a href="http://www.laruence.com/2009/05/28/863.html">鸟哥：Javascript作用域原理</a></li>
+  <li><a href="http://www.cnblogs.com/lhb25/archive/2011/09/06/javascript-scope-chain.html">理解 JavaScript 作用域和作用域链</a></li>
+  <li><a href="http://www.imooc.com/learn/277">JavaScript 深入浅出-慕课网</a></li>
+</ul>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/11/25/how-to-write-a-count-down/">前端如何写一个精确的倒计时
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/11/22/js-create-file-and-download/">使用 JavaScript 创建并下载文件
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/06/10/JavaScript-good-parts-note3/">JavaScript 语言精粹笔记3-方法、毒瘤等
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/06/07/JavaScript-good-parts-note1/">JavaScript 语言精粹笔记1-语法、对象、函数
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2015/05/18/front-end-tools/">前端的一些资料和工具</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2015/06/01/lenovo-front-end-interview/">联想服务前端实习面试经历</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'https://gaohaoyang.github.io/2015/05/20/scope/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://gaohaoyang.github.io/2015/05/20/scope/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//gaohaoyang.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="contact">
+            
+            <a href="mailto:247630638@qq.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/shanky1" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>  
+            <a href="tencent://message/?uin=247630638" title="Twitter"><i class="fa fa-qq" aria-hidden="true"></i></a> 
+        </p>
+        <p class="power">
+            <span>
+                Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                @shanky[247630638@qq.com]
+            </span>
+        </p>
+    </div>
+</footer>
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

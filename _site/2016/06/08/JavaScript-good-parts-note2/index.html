@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JavaScript 语言精粹笔记2-继承、数组、正则表达式</title>
+    <meta name="description" content="记录一下阅读蝴蝶书的笔记，本篇为书中以下章节的笔记：继承、数组和正则表达式。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="https://gaohaoyang.github.io/2016/06/08/JavaScript-good-parts-note2/">
+    <link rel="alternate" type="application/rss+xml" title="Shanky" href="https://gaohaoyang.github.io/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cf8506e0ef223e57ff6239944e5d46a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-72449510-4', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand"><img src="/img/logo.png?"></a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        主页
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            档案
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            分类
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            标签
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            关于
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>JavaScript 语言精粹笔记2-继承、数组、正则表达式</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-06-08
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  
+    
+        <a href="/category/#JavaScript" title="Category: JavaScript" rel="category">JavaScript</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#%E7%BB%A7%E6%89%BF" title="Tag: 继承" rel="tag">继承</a-->
+        <a href="/tag/#继承" title="Tag: 继承" rel="tag">继承</a>&nbsp;
+    
+        <!--a href="/tag/#%E5%AF%B9%E8%B1%A1" title="Tag: 对象" rel="tag">对象</a-->
+        <a href="/tag/#对象" title="Tag: 对象" rel="tag">对象</a>&nbsp;
+    
+        <!--a href="/tag/#%E5%8E%9F%E5%9E%8B" title="Tag: 原型" rel="tag">原型</a-->
+        <a href="/tag/#原型" title="Tag: 原型" rel="tag">原型</a>&nbsp;
+    
+        <!--a href="/tag/#Array" title="Tag: Array" rel="tag">Array</a-->
+        <a href="/tag/#Array" title="Tag: Array" rel="tag">Array</a>&nbsp;
+    
+        <!--a href="/tag/#%E6%AD%A3%E5%88%99" title="Tag: 正则" rel="tag">正则</a-->
+        <a href="/tag/#正则" title="Tag: 正则" rel="tag">正则</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">继承</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">伪类</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">对象说明符</a></li>
+      <li><a href="#section-3" id="markdown-toc-section-3">原型</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">函数化</a></li>
+      <li><a href="#section-5" id="markdown-toc-section-5">部件</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-6" id="markdown-toc-section-6">数组</a>    <ul>
+      <li><a href="#section-7" id="markdown-toc-section-7">数组字面量</a></li>
+      <li><a href="#section-8" id="markdown-toc-section-8">长度</a></li>
+      <li><a href="#section-9" id="markdown-toc-section-9">删除</a></li>
+      <li><a href="#section-10" id="markdown-toc-section-10">枚举</a></li>
+      <li><a href="#section-11" id="markdown-toc-section-11">容易混淆的地方</a></li>
+      <li><a href="#section-12" id="markdown-toc-section-12">方法</a></li>
+      <li><a href="#section-13" id="markdown-toc-section-13">指定初始值</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-14" id="markdown-toc-section-14">正则表达式</a></li>
+</ul>
+
+<p>记录一下阅读蝴蝶书的笔记，本篇为书中以下章节的笔记：继承、数组和正则表达式。</p>
+
+<h2 id="section">继承</h2>
+
+<p>继承的两大好处：代码重用，引入一套类型系统的规范。</p>
+
+<h3 id="section-1">伪类</h3>
+
+<p>JavaScript 通过构造器函数产生对象。</p>
+
+<p>构造器调用模式，即用<code class="highlighter-rouge">new</code>前缀去调用一个函数。</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">Mammal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
+<span class="p">}</span>
+
+<span class="nx">Mammal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span>
+<span class="p">}</span>
+
+<span class="nx">Mammal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">says</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">saying</span> <span class="o">||</span> <span class="s1">''</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">myMammal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mammal</span><span class="p">(</span><span class="s1">'Herb'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMammal</span><span class="p">.</span><span class="nx">getName</span><span class="p">())</span> <span class="c1">//Herb</span>
+</code></pre></div>
+
+<p>书中不推荐这样的写法。有很多风险。若忘记添加<code class="highlighter-rouge">new</code>前缀，<code class="highlighter-rouge">this</code>无法绑定到新的对象上。而是绑定到了全局对象上，破坏了全局变量环境。</p>
+
+<h3 id="section-2">对象说明符</h3>
+
+<p>上一节中的构造器可能要接受一大串参数。我们可以这样写：</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="nx">Maker</span><span class="p">({</span>
+    <span class="na">first</span><span class="p">:</span> <span class="nx">f</span><span class="p">,</span>
+    <span class="na">middle</span><span class="p">:</span> <span class="nx">m</span><span class="p">,</span>
+    <span class="na">last</span><span class="p">:</span> <span class="nx">l</span><span class="p">,</span>
+    <span class="na">state</span><span class="p">:</span> <span class="nx">s</span><span class="p">,</span>
+    <span class="na">city</span><span class="p">:</span> <span class="nx">c</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>将JSON对象传递给构造器，而它返回一个构造完全的对象。</p>
+
+<h3 id="section-3">原型</h3>
+
+<p>在一个纯粹的原型模式中，我们将摒弃类，转而专注于对象。一个新对象可以继承一个就对象的属性。</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">myMammal</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'MM'</span><span class="p">,</span>
+    <span class="na">getName</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span>
+    <span class="p">},</span>
+    <span class="na">says</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">saying</span> <span class="o">||</span> <span class="s1">''</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">myCat</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">myMammal</span><span class="p">)</span>
+<span class="nx">myCat</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'Kitty'</span>
+<span class="nx">myCat</span><span class="p">.</span><span class="nx">saying</span> <span class="o">=</span> <span class="s1">'meow'</span>
+<span class="nx">myCat</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'Kitty is running'</span>
+<span class="p">}</span>
+<span class="nx">myCat</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">says</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">says</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>这是一种差异化继承。</p>
+
+<h3 id="section-4">函数化</h3>
+
+<p>前文看到的继承模式没法保护隐私。对象的所有属性都是可见的。无法得到私有变量和私有函数。为了解决这一问题，我们有模块模式。</p>
+
+<p>构造一个生成对象的函数需要4步骤：</p>
+
+<ol>
+  <li>创建一个新对象。</li>
+  <li>有选择的定义私有变量和方法。</li>
+  <li>给这个新对象扩充方法。</li>
+  <li>返回那个新对象。</li>
+</ol>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">mammal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">spec</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="nx">that</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">spec</span><span class="p">.</span><span class="nx">name</span>
+    <span class="p">}</span>
+    <span class="nx">that</span><span class="p">.</span><span class="nx">says</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">spec</span><span class="p">.</span><span class="nx">saying</span> <span class="o">||</span> <span class="s1">''</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">that</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">myMammal</span> <span class="o">=</span> <span class="nx">mammal</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'Herb'</span><span class="p">,</span>
+    <span class="na">saying</span><span class="p">:</span> <span class="s1">'Cheers!'</span>
+<span class="p">})</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMammal</span><span class="p">.</span><span class="nx">getName</span><span class="p">())</span> <span class="c1">//Herb</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMammal</span><span class="p">.</span><span class="nx">says</span><span class="p">())</span> <span class="c1">//Cheers!</span>
+</code></pre></div>
+
+<p>也可以参考上一篇文章，<a href="http://gaohaoyang.github.io/2016/06/07/JavaScript-good-parts-note1/#section-34">JavaScript 语言精粹笔记1-语法、对象、函数 之模块部分</a>。</p>
+
+<h3 id="section-5">部件</h3>
+
+<p>这一部分看的不是特别懂，我想等我学完ES2015中的类和模块部分后再看看吧。</p>
+
+<h2 id="section-6">数组</h2>
+
+<h3 id="section-7">数组字面量</h3>
+
+<p>一个数组字面量是在一对方括号中包围零个或多个用逗号分隔的值的表达式。</p>
+
+<p>再大多数语言中，一个数组的多有元素都要求是相同的类型。JavaScript 允许数组包含任意混合类型的值。</p>
+
+<h3 id="section-8">长度</h3>
+
+<p>JavaScript 数组的<code class="highlighter-rouge">length</code>属性是没有上界的。如果用大于或等于当前<code class="highlighter-rouge">length</code>的数字作为下标来存储一个元素，那么<code class="highlighter-rouge">length</code>值会被增大以容纳新元素，不会发生数组越界错误。</p>
+
+<h3 id="section-9">删除</h3>
+
+<p>数组也是对象，可以用<code class="highlighter-rouge">delete</code>来删除元素</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'one'</span><span class="p">,</span> <span class="s1">'two'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'four'</span><span class="p">,</span> <span class="s1">'wu'</span><span class="p">]</span>
+
+<span class="k">delete</span> <span class="nx">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">//undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="c1">//5</span>
+</code></pre></div>
+
+<p>可以使用<code class="highlighter-rouge">splice</code>方法，进行删除和修改操作。</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="nx">numbers</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">//two</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="c1">//4</span>
+</code></pre></div>
+
+<h3 id="section-10">枚举</h3>
+
+<p>使用常规<code class="highlighter-rouge">for</code>循环即可，可以保证数组的顺序。</p>
+
+<h3 id="section-11">容易混淆的地方</h3>
+
+<p>当属性名是小而连续的整数时，应该使用数组，否则使用对象。</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="c1">//object</span>
+</code></pre></div>
+
+<p>返回数组的类型是<code class="highlighter-rouge">object</code>，没有任何意义。</p>
+
+<p>判断数组类型的方法</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">numbers</span><span class="p">))</span> <span class="c1">//true</span>
+</code></pre></div>
+<p>ECMAScript 5.1 (ECMA-262) 和 ECMAScript 2015 (6th Edition, ECMA-262) 标准中的方法。</p>
+
+<p>或者下面这个方法。</p>
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">is_array</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">===</span> <span class="s1">'[object Array]'</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">is_array</span><span class="p">(</span><span class="nx">numbers</span><span class="p">))</span> <span class="c1">//true</span>
+</code></pre></div>
+
+<h3 id="section-12">方法</h3>
+
+<p>数组的方法被存储在<code class="highlighter-rouge">Array.prototype</code>中的函数。</p>
+
+<p>数组是对象，因此<code class="highlighter-rouge">Array.prototype</code>也是可扩充的。</p>
+
+<h3 id="section-13">指定初始值</h3>
+
+<p>JavaScript 的数组不会预制值。</p>
+
+<p>JavaScript 没有多维数组，单项大多数类 C 语言一样，支持元素为数组的数组。</p>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="kd">var</span> <span class="nx">matrix</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="c1">//6</span>
+</code></pre></div>
+
+<h2 id="section-14">正则表达式</h2>
+
+<p>关于正则表达式，以前的博文写的比较多了，详情见：</p>
+
+<p><a href="http://gaohaoyang.github.io/2015/04/22/baidu-ife-2-javascript/#section-10">百度Web前端技术学院(2)-JavaScript 基础 之正则表达式部分1</a></p>
+
+<p><a href="http://gaohaoyang.github.io/2015/04/22/baidu-ife-2-javascript/#section-12">百度Web前端技术学院(2)-JavaScript 基础 之正则表达式部分2</a></p>
+
+<p><a href="http://gaohaoyang.github.io/2016/05/06/regular-expression-group/">浅谈正则表达式中的分组和引用</a></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/06/07/JavaScript-good-parts-note1/">JavaScript 语言精粹笔记1-语法、对象、函数
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/05/06/regular-expression-group/">浅谈正则表达式中的分组和引用
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/06/07/JavaScript-good-parts-note1/">JavaScript 语言精粹笔记1-语法、对象、函数</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/06/10/JavaScript-good-parts-note3/">JavaScript 语言精粹笔记3-方法、毒瘤等</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'https://gaohaoyang.github.io/2016/06/08/JavaScript-good-parts-note2/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://gaohaoyang.github.io/2016/06/08/JavaScript-good-parts-note2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//gaohaoyang.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="contact">
+            
+            <a href="mailto:247630638@qq.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/shanky1" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>  
+            <a href="tencent://message/?uin=247630638" title="Twitter"><i class="fa fa-qq" aria-hidden="true"></i></a> 
+        </p>
+        <p class="power">
+            <span>
+                Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                @shanky[247630638@qq.com]
+            </span>
+        </p>
+    </div>
+</footer>
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

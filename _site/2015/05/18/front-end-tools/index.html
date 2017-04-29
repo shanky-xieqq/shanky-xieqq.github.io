@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>前端的一些资料和工具</title>
+    <meta name="description" content="记录一些好用的前端工具和框架。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="https://gaohaoyang.github.io/2015/05/18/front-end-tools/">
+    <link rel="alternate" type="application/rss+xml" title="Shanky" href="https://gaohaoyang.github.io/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cf8506e0ef223e57ff6239944e5d46a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-72449510-4', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand"><img src="/img/logo.png?"></a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        主页
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            档案
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            分类
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            标签
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            关于
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>前端的一些资料和工具</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2015-05-18
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  
+    
+        <a href="/category/#Tools" title="Category: Tools" rel="category">Tools</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#tools" title="Tag: tools" rel="tag">tools</a-->
+        <a href="/tag/#tools" title="Tag: tools" rel="tag">tools</a>&nbsp;
+    
+        <!--a href="/tag/#CSS" title="Tag: CSS" rel="tag">CSS</a-->
+        <a href="/tag/#CSS" title="Tag: CSS" rel="tag">CSS</a>&nbsp;
+    
+        <!--a href="/tag/#reveal" title="Tag: reveal" rel="tag">reveal</a-->
+        <a href="/tag/#reveal" title="Tag: reveal" rel="tag">reveal</a>&nbsp;
+    
+        <!--a href="/tag/#%E9%85%8D%E8%89%B2" title="Tag: 配色" rel="tag">配色</a-->
+        <a href="/tag/#配色" title="Tag: 配色" rel="tag">配色</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">色彩与图标</a>    <ul>
+      <li><a href="#css" id="markdown-toc-css">CSS滤镜</a></li>
+      <li><a href="#css-1" id="markdown-toc-css-1">渐变CSS代码生成器</a></li>
+      <li><a href="#qq-16" id="markdown-toc-qq-16">QQ截图取色-16进制</a></li>
+      <li><a href="#section-1" id="markdown-toc-section-1">配色</a></li>
+      <li><a href="#section-2" id="markdown-toc-section-2">图标</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-3" id="markdown-toc-section-3">数据处理</a>    <ul>
+      <li><a href="#json" id="markdown-toc-json">Json</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-4" id="markdown-toc-section-4">展示</a>    <ul>
+      <li><a href="#revealjs" id="markdown-toc-revealjs">reveal.js</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>这里记录一些我用到的或者见到的比较好用方便的前端开发相关的工具吧。</p>
+
+<hr />
+
+<h2 id="section">色彩与图标</h2>
+
+<h3 id="css">CSS滤镜</h3>
+
+<ul>
+  <li>
+    <p><a href="http://www.cssreflex.com/css-generators/filter">Filter Effects</a></p>
+
+    <p>界面：</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-filter.png" alt="Filter Effects" /></p>
+
+    <p>有各种各样的滤镜效果，可以直接调节参数观察变化。</p>
+
+    <p>值得一提的是，这个网站还有很多其他 css 生成器。</p>
+
+    <p>比如：Border Image, Border Radius, Box Shadow, Filter Effects, Multi-Column, Outline Border, Overflow(x,y), RGBa, Text Rotate, Text Shadow, Textarea Resize, Transform</p>
+  </li>
+  <li>
+    <p>可以访问这里去使用这些 css 生成器：<a href="http://www.cssreflex.com/css-generators/">CSS Generators</a></p>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="css-1">渐变CSS代码生成器</h3>
+
+<ul>
+  <li>
+    <p><a href="http://www.colorzilla.com/gradient-editor/">Ultimate CSS Gradient Generator</a></p>
+
+    <p>界面如下图：</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-color-gradient.png" alt="Ultimate CSS Gradient Generator" /></p>
+
+    <p>目前 css 写渐变还很复杂，但是用了这个工具简直太方便了，直接生成 css 代码，还能兼容 ie。</p>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="qq-16">QQ截图取色-16进制</h3>
+
+<p>在按下 <code class="highlighter-rouge">Ctrl+Shift+A</code> 后，再按一下 <code class="highlighter-rouge">Ctrl</code> 就可以看到截图框下面的颜色代码变成16进制的代码了。</p>
+
+<p>如下图：</p>
+
+<p>普通截图：</p>
+
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-RBGScreenColor.png" alt="normal" /></p>
+
+<p>按住 <code class="highlighter-rouge">Ctrl</code>：</p>
+
+<p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-hexSreenColor.png" alt="press ctrl" /></p>
+
+<p>可以看到第一幅图中的 51, 51, 51 变成了 #333333。</p>
+
+<hr />
+
+<h3 id="section-1">配色</h3>
+
+<ul>
+  <li>
+    <p><a href="http://nipponcolors.com/">nipponcolors</a></p>
+
+    <p>日本的一个配色网站。罗列了很多不饱和经典的颜色，当然，自己选配还是很重要的。</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-chooseColor.png" alt="nipponcolors" /></p>
+  </li>
+  <li>
+    <p><a href="https://color.adobe.com/zh/explore/most-popular/?time=all">Adobe Color CC</a></p>
+
+    <p>Adobe 出的在线配色工具，里面有些现成的配色方案还是很不错的。</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-adobeColorCC.png" alt="Adobe Color CC" /></p>
+  </li>
+  <li>
+    <p><a href="http://paletton.com/">paletton</a></p>
+
+    <p>提供了各种预览模式，可以在模板网站中预览，在色块中预览。</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-paletton.png" alt="paletton" /></p>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="section-2">图标</h3>
+
+<ul>
+  <li>
+    <p><a href="http://www.easyicon.net/">easyicon</a></p>
+
+    <p>对中文的搜索支持很好。实际上它是先把中文翻译为英文再搜索的。</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-icon.png" alt="easyicon" /></p>
+  </li>
+  <li>
+    <p><a href="http://fortawesome.github.io/Font-Awesome/icons/">Font-Awesome</a></p>
+
+    <p>比上面介绍的那个好用的多，字体图标，不需要考虑像素大小，全部是矢量图。并且图标精美。如果不使用 BootStrap，单独添加图标的话，这一套图标在合适不过了。</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-font awesome.png" alt="Font-Awesome" /></p>
+  </li>
+  <li>
+    <p><a href="http://www.iconfont.cn/">iconfont.cn</a></p>
+
+    <p>阿里巴巴制作的图标库。</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/iconfont.png" alt="iconfont" /></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="section-3">数据处理</h2>
+
+<h3 id="json">Json</h3>
+
+<ul>
+  <li>
+    <p><a href="http://braincast.nl/samples/jsoneditor/">json editor</a></p>
+
+    <p>将json数据输入进去，会生成一个树形的结构，方便查看每个节点。</p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-json.png" alt="jsoneditor" /></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="section-4">展示</h2>
+
+<h3 id="revealjs">reveal.js</h3>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/hakimel/reveal.js">reveal.js</a></p>
+
+    <p>在网页上展示 slides 幻灯片，太酷了。针对不会代码的人还有一个在线编辑器：<a href="http://slides.com">http://slides.com</a></p>
+
+    <p>还有一个新手入门教程：<a href="http://htmlcheats.com/reveal-js/reveal-js-tutorial-reveal-js-for-beginners/">Reveal.js Tutorial-Reveal.js for Beginners</a></p>
+
+    <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-revealjs.png" alt="reveal" /></p>
+  </li>
+</ul>
+
+<p>本文不定期更新。</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/03/12/jekyll-theme-version-2.0/">对这个 jekyll 博客主题的改版和重构
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2015/04/23/baidu-ife-2-javascript/">百度Web前端技术学院(2)-JavaScript 基础</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2015/05/20/scope/">JavaScript 作用域和作用域链</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'https://gaohaoyang.github.io/2015/05/18/front-end-tools/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://gaohaoyang.github.io/2015/05/18/front-end-tools/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//gaohaoyang.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="contact">
+            
+            <a href="mailto:247630638@qq.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/shanky1" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>  
+            <a href="tencent://message/?uin=247630638" title="Twitter"><i class="fa fa-qq" aria-hidden="true"></i></a> 
+        </p>
+        <p class="power">
+            <span>
+                Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                @shanky[247630638@qq.com]
+            </span>
+        </p>
+    </div>
+</footer>
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

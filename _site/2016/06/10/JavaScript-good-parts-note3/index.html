@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JavaScript 语言精粹笔记3-方法、毒瘤等</title>
+    <meta name="description" content="记录一下阅读蝴蝶书的笔记，本篇为书中最后一部分：方法、代码风格、优美的特性、毒瘤、糟粕等。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="https://gaohaoyang.github.io/2016/06/10/JavaScript-good-parts-note3/">
+    <link rel="alternate" type="application/rss+xml" title="Shanky" href="https://gaohaoyang.github.io/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cf8506e0ef223e57ff6239944e5d46a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-72449510-4', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand"><img src="/img/logo.png?"></a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        主页
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            档案
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            分类
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            标签
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            关于
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>JavaScript 语言精粹笔记3-方法、毒瘤等</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-06-10
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  
+    
+        <a href="/category/#JavaScript" title="Category: JavaScript" rel="category">JavaScript</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#%E5%87%BD%E6%95%B0" title="Tag: 函数" rel="tag">函数</a-->
+        <a href="/tag/#函数" title="Tag: 函数" rel="tag">函数</a>&nbsp;
+    
+        <!--a href="/tag/#JavaScript" title="Tag: JavaScript" rel="tag">JavaScript</a-->
+        <a href="/tag/#JavaScript" title="Tag: JavaScript" rel="tag">JavaScript</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">方法</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">毒瘤</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">糟粕</a></li>
+</ul>
+
+<p>记录一下阅读蝴蝶书的笔记，本篇为书中最后一部分：方法、代码风格、优美的特性、毒瘤、糟粕等。</p>
+
+<h2 id="section">方法</h2>
+
+<p>这一章主要介绍了一些方法集。这里写几个我不太熟悉的方法和要点吧。</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">array.join()</code></p>
+
+    <blockquote>
+      <p>对于IE6/7，使用<code class="highlighter-rouge">array.join()</code>连接大量字符串的效率确实优于使用<code class="highlighter-rouge">+</code>元素运算符。但是目前主流的浏览器，包括IE8以后的版本，都对<code class="highlighter-rouge">+</code>元素运算符连接字符串做了特别优化，性能已经显著高于<code class="highlighter-rouge">array.join()</code>。</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">number.toExponential(fractionDigits)</code></p>
+
+    <p>把这个<code class="highlighter-rouge">number</code>转换成一个指数形式的字符串。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">number.toFixed(fractionDigits)</code></p>
+
+    <p>将这个<code class="highlighter-rouge">number</code>转换成一个十进制形式的字符串。</p>
+  </li>
+</ul>
+
+<h2 id="section-1">毒瘤</h2>
+
+<ul>
+  <li>
+    <p>注意全局变量的引入。</p>
+  </li>
+  <li>
+    <p>JavaScript 中 Unicode 是16位的。包含65536个字符（基本多文种平面 Basic Multilingual Plane）。剩下的百万字符中的每一个都可以用一对字符来表示。Unicode 把一对字符视为一个单一的字符，而 JavaScript 认为一对字符是两个不同的字符。</p>
+  </li>
+  <li>
+    <p>检测<code class="highlighter-rouge">null</code>的方式。</p>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">null</span><span class="p">)</span> <span class="c1">//object</span>
+
+<span class="nx">myValue</span> <span class="o">===</span> <span class="kc">null</span> <span class="c1">//检测 null</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">myValue</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">myValue</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// myValue 是一个对象或数组！</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">parseInt</code> 把字符串转化为整数的函数。它遇到非数字时会停止解析，所以<code class="highlighter-rouge">parseInt('16')</code>和<code class="highlighter-rouge">parseInt('16ton')</code>产生相同的结果。</p>
+
+    <p>如果该字符串第一个字符是0，那么该字符串会基于八进制而不是十进制来求职。在八进制中，8和9不是数字，所以<code class="highlighter-rouge">parseInt('08')</code>和<code class="highlighter-rouge">parseInt('09')</code>都产生0作为结果。但<code class="highlighter-rouge">parseInt()</code>可以接受基数，因此<code class="highlighter-rouge">parseInt('08',10)</code>结果为8，建议总是加上这个基数参数。</p>
+  </li>
+  <li>
+    <p>JavaScript 的对象永远不会是真的空对象，因为它们可以送原型链中取得成员属性。</p>
+  </li>
+</ul>
+
+<h2 id="section-2">糟粕</h2>
+
+<ul>
+  <li>
+    <p>避免使用<code class="highlighter-rouge">with</code>语句。</p>
+  </li>
+  <li>
+    <p>避免使用<code class="highlighter-rouge">eval</code>语句。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">continue</code>可能会降低运算性能。</p>
+  </li>
+  <li>
+    <p>位运算符在 JavaScript 会非常慢。</p>
+
+    <p>Java 里，位运算符处理的是整数。JavaScript 没有整数类型，它只有双精度的浮点数，因此，位运算符把它们的数字运算数先转换为整数，执行运算，在转换回去。JavaScript 的执行环境一般接触不到硬件，所以非常慢。</p>
+  </li>
+  <li>
+    <p>避免使用包装对象。<code class="highlighter-rouge">new Object</code>和<code class="highlighter-rouge">new Array</code>等。</p>
+  </li>
+  <li>
+    <p>避免使用<code class="highlighter-rouge">void</code>。</p>
+  </li>
+</ul>
+
+<p>本系列结束。</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/11/25/how-to-write-a-count-down/">前端如何写一个精确的倒计时
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/11/22/js-create-file-and-download/">使用 JavaScript 创建并下载文件
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/06/07/JavaScript-good-parts-note1/">JavaScript 语言精粹笔记1-语法、对象、函数
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="https://gaohaoyang.github.io/2016/01/01/History-API/">前端处理动态 url 和 pushStatus 的使用
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2016/06/08/JavaScript-good-parts-note2/">JavaScript 语言精粹笔记2-继承、数组、正则表达式</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2016/06/14/how-to-use-babel/">如何使用 babel</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'https://gaohaoyang.github.io/2016/06/10/JavaScript-good-parts-note3/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://gaohaoyang.github.io/2016/06/10/JavaScript-good-parts-note3/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//gaohaoyang.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="contact">
+            
+            <a href="mailto:247630638@qq.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/shanky1" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>  
+            <a href="tencent://message/?uin=247630638" title="Twitter"><i class="fa fa-qq" aria-hidden="true"></i></a> 
+        </p>
+        <p class="power">
+            <span>
+                Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+            <span>
+                @shanky[247630638@qq.com]
+            </span>
+        </p>
+    </div>
+</footer>
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>
