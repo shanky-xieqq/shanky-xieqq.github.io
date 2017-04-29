@@ -19,11 +19,10 @@
         }
     }
     a {
-        color: #4d6dad;
+        color: #fc0;
         transition: 0.5s ease;
         &:hover {
-            color: #223253;
-            background-color: #f4efeb;
+            color: #f90;
         }
     }
     .left {
@@ -32,10 +31,46 @@
                 color: #333;
             }
             li {
-                color: #333;
+                color: #ddd;
                 margin: 0;
             }
         }
+         .label {
+            .label-card {
+                    color:#aaa;
+                    float: left;
+                    margin-right: 15px;
+                    .categories{
+                        a{
+                            display:inline-block;
+                            background:#9e2812;
+                            color:#ddd;
+                            padding:0px 4px;
+                            border-radius:4px;
+                            &:hover{
+                                color:#fff;
+                                background:#6f0d0d;
+                            }
+                        }
+                    }
+                    .pageTag{
+                        i{
+                            color:#0389aa;
+                        }
+                        a{
+                            display:inline-block;
+                            background:#0389aa;
+                            color:#fff;
+                            border-radius:10px;
+                            padding:0px 8px;
+                            &:hover{
+                                color:#fff;
+                                background:#00617f;
+                            }
+                        }
+                    }
+                }
+            }
         // .post-recent {
         //     width: 100%;
         //     overflow: hidden;

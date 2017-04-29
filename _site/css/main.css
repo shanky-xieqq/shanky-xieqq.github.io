@@ -263,16 +263,39 @@ header {
       padding-right: 5px;
       color: #6b6a6a; }
 .page[post] a {
-  color: #4d6dad;
+  color: #fc0;
   transition: 0.5s ease; }
   .page[post] a:hover {
-    color: #223253;
-    background-color: #f4efeb; }
+    color: #f90; }
 .page[post] .left ul > h2 {
   color: #333; }
 .page[post] .left ul li {
-  color: #333;
+  color: #ddd;
   margin: 0; }
+.page[post] .left .label .label-card {
+  color: #aaa;
+  float: left;
+  margin-right: 15px; }
+  .page[post] .left .label .label-card .categories a {
+    display: inline-block;
+    background: #9e2812;
+    color: #ddd;
+    padding: 0px 4px;
+    border-radius: 4px; }
+    .page[post] .left .label .label-card .categories a:hover {
+      color: #fff;
+      background: #6f0d0d; }
+  .page[post] .left .label .label-card .pageTag i {
+    color: #0389aa; }
+  .page[post] .left .label .label-card .pageTag a {
+    display: inline-block;
+    background: #0389aa;
+    color: #fff;
+    border-radius: 10px;
+    padding: 0px 8px; }
+    .page[post] .left .label .label-card .pageTag a:hover {
+      color: #fff;
+      background: #00617f; }
 
 @media screen and (max-width: 770px) {
   .page[post] .left {
@@ -904,13 +927,13 @@ pre {
   width: 0;
   height: 0; }
 .content-ul::-webkit-scrollbar-thumb {
-  background: #D3D3D3;
+  background: #666;
   border: 0 none #ffffff;
   border-radius: 50px; }
 .content-ul::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8; }
+  background: #555; }
 .content-ul::-webkit-scrollbar-thumb:active {
-  background: #787878; }
+  background: #333; }
 .content-ul::-webkit-scrollbar-track {
   background: #F1F1F1;
   border-radius: 50px; }
