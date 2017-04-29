@@ -6,7 +6,7 @@ code{
     margin: 0 2px;
     font-size: 90%;
     border-radius: 3px;
-    color: #000;
+    color: #a6e22e;
     background-color: rgba(0, 0, 0, 0.06);
     font-family: Monaco,Menlo,"Microsoft YaHei Mono",Consolas,"Courier New",monospace,sans-serif;
 }
@@ -29,8 +29,7 @@ pre {
 }
 
 .highlight {
-    border-radius: 3px;
-
+    border-radius: 8px;
     background: #272822;
     .hll { background-color: #272822; }
     .c { color: #75715e } /* Comment */
