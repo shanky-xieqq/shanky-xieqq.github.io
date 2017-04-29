@@ -477,9 +477,8 @@ code {
   margin: 0 2px;
   font-size: 90%;
   border-radius: 3px;
-  color: #000;
+  color: #a6e22e;
   background-color: rgba(0, 0, 0, 0.06);
-  border: 1px solid #d7d0d2;
   font-family: Monaco,Menlo,"Microsoft YaHei Mono",Consolas,"Courier New",monospace,sans-serif; }
 
 pre {
@@ -500,7 +499,7 @@ pre {
     background-color: #272822; }
 
 .highlight {
-  border-radius: 3px;
+  border-radius: 8px;
   background: #272822;
   /* Comment */
   /* Error */
