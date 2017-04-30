@@ -74,3 +74,17 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 - nvm unalias <name> ## 删除已定义的别名
 - nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包
 
+
+## 附：设置npm源
+
+执行以下命令查看npm当前源：
+
+```
+npm config -g get registry
+```
+
+设置成淘宝镜像：
+
+```
+npm config -g set registry https://registry.npm.taobao.org
+```
