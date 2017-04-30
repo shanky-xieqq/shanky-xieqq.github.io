@@ -68,10 +68,10 @@ header {
 }
 @media screen and (max-width:1200px) and (min-width: 770px) {
     header {
-        height: 50px;
+        height: 120px;
         .wrapper {
             width: 90%;
-            line-height: 50px;
+            height: 120px;
             .brand {
                 font-size: 16px;
             }
@@ -87,7 +87,7 @@ header {
                     li {
                         a {
                             padding: 0 8px;
-                            height: 50px;
+                            height: 36px;
                             i {
                                 margin-right: 4px;
                             }
@@ -100,16 +100,15 @@ header {
 }
 @media screen and (max-width: 770px) {
     header {
-        height: 48px;
-        margin-bottom: 15px;
+        height: 120px;
         .wrapper {
             width: 95%;
             margin: 0 auto;
-            line-height: 48px;
+            height:120px;
             position: relative;
-            z-index: 101;
             .brand {
-                font-size: 16px;
+                display:block;
+                text-align:center;
             }
             small {
                 margin-left: 10px;
@@ -118,7 +117,7 @@ header {
             .menu{
                 display: inline-block;
                 position: absolute;
-                z-index: -102;
+                z-index: 100;
                 right: 0;
                 top:10px;
                 padding: 5px 10px;
@@ -156,6 +155,7 @@ header {
                     border-radius: 0 0 4px 4px;
                     box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.5);
                     li {
+                        padding:0px 0px;
                         font-size: 14px;
                         display: block;
                         border-bottom: 1px solid #333;
@@ -170,8 +170,8 @@ header {
                         }
                         >.active {
                             color: #fff;
-                            background-color: #000;
                             box-shadow: none;
+                            background:#222;
                         }
                     }
                 }

@@ -36,5 +36,5 @@ type: page
 * GitHub：[shanky-xieqq](https://github.com/shanky-xieqq)
 * QQ:247630638
 * email：247630638@qq.com
-* Wechat:shanky
+* Wechat：shanky
 * [Weibo](http://weibo.com/shanky1)

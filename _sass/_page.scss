@@ -187,7 +187,8 @@
             display: block;
             visibility: visible;
             position: fixed;
-            top: 76px;
+            //z-index:101;
+            top: 120px;
             right: 2.5%;
             padding: 5px 10px;
             color: #333;
@@ -207,12 +208,12 @@
             // display: none;
             position: fixed;
 
-            // z-index: 190;
+            //z-index: 101;
             float: none;
             width: auto;
             max-width: 95%;
             padding: 0;
-            top: 76px;
+            top: 120px;
             right: 2.5%;
             opacity: 0;
             transform-origin: 100% 0;

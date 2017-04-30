@@ -164,10 +164,10 @@ header {
 
 @media screen and (max-width: 1200px) and (min-width: 770px) {
   header {
-    height: 50px; }
+    height: 120px; }
     header .wrapper {
       width: 90%;
-      line-height: 50px; }
+      height: 120px; }
       header .wrapper .brand {
         font-size: 16px; }
       header .wrapper small {
@@ -177,28 +177,27 @@ header {
         display: none; }
       header .wrapper nav ul li a {
         padding: 0 8px;
-        height: 50px; }
+        height: 36px; }
         header .wrapper nav ul li a i {
           margin-right: 4px; } }
 @media screen and (max-width: 770px) {
   header {
-    height: 48px;
-    margin-bottom: 15px; }
+    height: 120px; }
     header .wrapper {
       width: 95%;
       margin: 0 auto;
-      line-height: 48px;
-      position: relative;
-      z-index: 101; }
+      height: 120px;
+      position: relative; }
       header .wrapper .brand {
-        font-size: 16px; }
+        display: block;
+        text-align: center; }
       header .wrapper small {
         margin-left: 10px;
         font-size: 12px; }
       header .wrapper .menu {
         display: inline-block;
         position: absolute;
-        z-index: -102;
+        z-index: 100;
         right: 0;
         top: 10px;
         padding: 5px 10px;
@@ -232,6 +231,7 @@ header {
           border-radius: 0 0 4px 4px;
           box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.5); }
           header .wrapper nav ul li {
+            padding: 0px 0px;
             font-size: 14px;
             display: block;
             border-bottom: 1px solid #333; }
@@ -244,8 +244,8 @@ header {
               border: none; }
             header .wrapper nav ul li > .active {
               color: #fff;
-              background-color: #000;
-              box-shadow: none; } }
+              box-shadow: none;
+              background: #222; } }
 #markdown-toc {
   display: none; }
 
@@ -308,7 +308,10 @@ header {
     .page[post] .left h5 {
       font-size: 16px; }
     .page[post] .left h6 {
-      font-size: 15px; } }
+      font-size: 15px; }
+    .page[post] .left .label .label-card {
+      font-side: 14px;
+      margin-top: 4px; } }
 .clearfix:after {
   content: "\200B";
   display: block;
@@ -457,7 +460,7 @@ header {
       display: block;
       visibility: visible;
       position: fixed;
-      top: 76px;
+      top: 120px;
       right: 2.5%;
       padding: 5px 10px;
       color: #333;
@@ -476,7 +479,7 @@ header {
       width: auto;
       max-width: 95%;
       padding: 0;
-      top: 76px;
+      top: 120px;
       right: 2.5%;
       opacity: 0;
       transform-origin: 100% 0;
@@ -918,7 +921,10 @@ pre {
     width: 90%; } }
 @media screen and (max-width: 770px) {
   .site-footer .wrapper {
-    width: 90%; } }
+    width: 90%;
+    display: block;
+    font-size: 12px;
+    padding: 6px 0px; } }
 .content-ul::-webkit-scrollbar {
   width: 7px;
   height: 6px; }
