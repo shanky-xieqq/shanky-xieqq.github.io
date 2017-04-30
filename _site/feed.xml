@@ -5,9 +5,30 @@
     <description></description>
     <link>https://shanky-xieqq.github.io/</link>
     <atom:link href="https://shanky-xieqq.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Apr 2017 15:34:11 +0800</pubDate>
-    <lastBuildDate>Sun, 30 Apr 2017 15:34:11 +0800</lastBuildDate>
+    <pubDate>Sun, 30 Apr 2017 23:58:01 +0800</pubDate>
+    <lastBuildDate>Sun, 30 Apr 2017 23:58:01 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>如何利用nvm版本管理器配置Ubuntu的node环境</title>
+        <description>
+关于linux如何配置node环境，因为node环境需要干净的系统，所以linux是再好不过了，windows一直有不知名的bug，而且网上的node教程大多是面向linux环境的，所以配置一个linux的node环境是最好的，当然你可以用一个VM虚拟机配置linux，新手推荐Ubuntu甚至deepin都可以，图形化，方便有效，后期习惯了再去用centos，cenos主要是命令式的方便学习，不适合初学者，最起码不适合不熟悉linux的孩子。
+
+</description>
+        <pubDate>Sun, 30 Apr 2017 00:00:00 +0800</pubDate>
+        <link>https://shanky-xieqq.github.io/2017/04/30/how-to-make-ubuntu-node-environment/</link>
+        <guid isPermaLink="true">https://shanky-xieqq.github.io/2017/04/30/how-to-make-ubuntu-node-environment/</guid>
+        
+        <category>node</category>
+        
+        <category>JavaScript</category>
+        
+        <category>linux</category>
+        
+        
+        <category>node</category>
+        
+      </item>
     
       <item>
         <title>前端如何写一个精确的倒计时</title>
@@ -256,37 +277,6 @@
         
         
         <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>对这个 jekyll 博客主题的改版和重构</title>
-        <description>
-本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。
-
-主要想做这些事情有：添加归档，添加标签，添加分类页面，主页显示文章摘要，代码去除 jQuery 和 BootStrap，优化移动端显示，将所有变量写入配置文件&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;中等。再优化一些细节吧。希望更多人会喜欢。
-
-</description>
-        <pubDate>Sat, 12 Mar 2016 11:40:18 +0800</pubDate>
-        <link>https://shanky-xieqq.github.io/2016/03/12/jekyll-theme-version-2.0/</link>
-        <guid isPermaLink="true">https://shanky-xieqq.github.io/2016/03/12/jekyll-theme-version-2.0/</guid>
-        
-        <category>jekyll</category>
-        
-        <category>端口</category>
-        
-        <category>markdown</category>
-        
-        <category>Foxit</category>
-        
-        <category>RubyGems</category>
-        
-        <category>HTML</category>
-        
-        <category>CSS</category>
-        
-        
-        <category>jekyll</category>
         
       </item>
     
