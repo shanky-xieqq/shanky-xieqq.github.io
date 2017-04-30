@@ -188,9 +188,6 @@ header {
       margin: 0 auto;
       height: 120px;
       position: relative; }
-      header .wrapper .brand {
-        display: block;
-        text-align: center; }
       header .wrapper small {
         margin-left: 10px;
         font-size: 12px; }
