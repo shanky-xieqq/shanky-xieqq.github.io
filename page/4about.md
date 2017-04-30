@@ -34,7 +34,7 @@ type: page
 ## 联系我
 
 * GitHub：[shanky-xieqq](https://github.com/shanky-xieqq)
-* QQ:247630638
+* QQ：247630638
 * email：247630638@qq.com
 * Wechat：shanky
 * [Weibo](http://weibo.com/shanky1)
