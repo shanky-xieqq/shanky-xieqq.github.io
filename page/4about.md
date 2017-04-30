@@ -31,6 +31,11 @@ type: page
 * 2014.9  入职福州市振邦科技有限公司(实习)
 
 
+## 关于本站
+
+本站是我的blog第一版，还不够完善，没有评论呢，多说停了不知道用啥好。有慧眼识珠的大大应该看出来啦，这是[hyG](https://github.com/Gaohaoyang)前辈的博客模版加上[Jekyll](https://jekyllrb.com/)样式的基础上改出来的，国内典型的1+1=1，希望版权大佬不要打我，，，如果有想参考本站的小伙伴可以点击[这里](https://github.com/shanky-xieqq/shanky-xieqq.github.io)访问我的guhub项目源码，我的github还很少东西呢，这个blog算是比较大的了，如果可以的话麻烦小伙伴们点一下star鼓励一下咯，谢谢啦(•̀ᴗ•́)و ̑̑ 
+
+
 ## 联系我
 
 * GitHub：[shanky-xieqq](https://github.com/shanky-xieqq)
