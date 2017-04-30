@@ -461,6 +461,7 @@ header {
       display: block;
       visibility: visible;
       position: fixed;
+      z-index: 99;
       top: 120px;
       right: 2.5%;
       padding: 5px 10px;
