@@ -190,6 +190,8 @@ header {
       height: 120px;
       position: relative; }
       header .wrapper .brand {
+        position: relative;
+        z-index: 10;
         display: block;
         text-align: center; }
       header .wrapper small {
