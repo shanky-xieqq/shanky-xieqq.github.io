@@ -1,5 +1,5 @@
 ##  shanky-xieqq.github.io
-shanky's Blog 1.0 => [shanky-xieqq.github.io](blog.shanky.cn)
+shanky's Blog 1.0 => [shanky-xieqq.github.io](http://blog.shanky.cn)
 >
 >
 
