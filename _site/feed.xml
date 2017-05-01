@@ -5,9 +5,26 @@
     <description></description>
     <link>https://shanky-xieqq.github.io/</link>
     <atom:link href="https://shanky-xieqq.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 May 2017 00:05:22 +0800</pubDate>
-    <lastBuildDate>Mon, 01 May 2017 00:05:22 +0800</lastBuildDate>
+    <pubDate>Mon, 01 May 2017 11:25:25 +0800</pubDate>
+    <lastBuildDate>Mon, 01 May 2017 11:25:25 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>如何在linux里安装软件[以Chrome为例]</title>
+        <description>
+当你把linux环境布置好了之后，又有一个蛋疼的事情来了，一些IDE，或者是linux下的软件这么装？当然如果是centos只需要命令式的就好了，一般都只要apt-get一下就OK了，我这里说的是ubuntu或者deepin之类的图形界面式的，我是小白啦，只能从图形开始玩。
+
+</description>
+        <pubDate>Mon, 01 May 2017 00:00:00 +0800</pubDate>
+        <link>https://shanky-xieqq.github.io/2017/05/01/how-to-install-soft-in-linux/</link>
+        <guid isPermaLink="true">https://shanky-xieqq.github.io/2017/05/01/how-to-install-soft-in-linux/</guid>
+        
+        <category>linux</category>
+        
+        
+        <category>linux</category>
+        
+      </item>
     
       <item>
         <title>如何利用nvm版本管理器配置Ubuntu的node环境</title>
@@ -240,40 +257,6 @@
         <category>面向对象</category>
         
         <category>作用域</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>浅谈正则表达式中的分组和引用</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;问题&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-由正则表达式如何匹配相同字符出发，讲讲正则表达式中的选择、分组和引用。
-
-&lt;h2 id=&quot;section&quot;&gt;问题&lt;/h2&gt;
-
-在外刊君读者群中看到有人提出这样的一个需求：
-
-&lt;blockquote&gt;
-  把字符串切成连续相同字符的正则怎么写？比如&lt;code class=&quot;highlighter-rouge&quot;&gt;abbcccdddd&lt;/code&gt;切成&lt;code class=&quot;highlighter-rouge&quot;&gt;a,bb,ccc,dddd&lt;/code&gt;
-&lt;/blockquote&gt;
-
-之前我对正则表达式也是略有研究，想尝试一下。其实我对正则表达式的学习基本完全来源于犀牛书的第10章，真正看懂这一章，我觉得操作正则表达式应该不在话下。
-
-</description>
-        <pubDate>Fri, 06 May 2016 11:40:18 +0800</pubDate>
-        <link>https://shanky-xieqq.github.io/2016/05/06/regular-expression-group/</link>
-        <guid isPermaLink="true">https://shanky-xieqq.github.io/2016/05/06/regular-expression-group/</guid>
-        
-        <category>正则</category>
-        
-        <category>分组</category>
-        
-        <category>Regular</category>
         
         
         <category>JavaScript</category>

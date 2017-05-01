@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>如何利用nvm版本管理器配置Ubuntu的node环境</title>
-    <meta name="description" content="关于linux如何配置node环境，因为node环境需要干净的系统，所以linux是再好不过了，windows一直有不知名的bug，而且网上的node教程大多是面向linux环境的，所以配置一个linux的node环境是最好的，当然你可以用一个VM虚拟机配置linux，新手推荐Ubuntu甚至deepin都可以，...">
+    <title>如何在linux里安装软件[以Chrome为例]</title>
+    <meta name="description" content="当你把linux环境布置好了之后，又有一个蛋疼的事情来了，一些IDE，或者是linux下的软件这么装？当然如果是centos只需要命令式的就好了，一般都只要apt-get一下就OK了，我这里说的是ubuntu或者deepin之类的图形界面式的，我是小白啦，只能从图形开始玩。">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="https://shanky-xieqq.github.io/2017/04/30/how-to-make-ubuntu-node-environment/">
+    <link rel="canonical" href="https://shanky-xieqq.github.io/2017/05/01/how-to-install-soft-in-linux/">
     <link rel="alternate" type="application/rss+xml" title="Shanky" href="https://shanky-xieqq.github.io/feed.xml ">
 
 
@@ -128,11 +128,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>如何利用nvm版本管理器配置Ubuntu的node环境</h1>
+        <h1>如何在linux里安装软件[以Chrome为例]</h1>
         <div class="label">
 
             <div class="label-card">
-                2017-04-30
+                2017-05-01
             </div>
 
             <div class="label-card">
@@ -147,7 +147,7 @@
 <span class="categories">
   
     
-        <a href="/category/#node" title="Category: node" rel="category">node</a>
+        <a href="/category/#linux" title="Category: linux" rel="category">linux</a>
     
   
 
@@ -164,12 +164,6 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#node" title="Tag: node" rel="tag">node</a-->
-        <a href="/tag/#node" title="Tag: node" rel="tag">node</a>&nbsp;
-    
-        <!--a href="/tag/#JavaScript" title="Tag: JavaScript" rel="tag">JavaScript</a-->
-        <a href="/tag/#JavaScript" title="Tag: JavaScript" rel="tag">JavaScript</a>&nbsp;
-    
         <!--a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a-->
         <a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a>
     
@@ -183,84 +177,44 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">安装</a></li>
-  <li><a href="#nvm" id="markdown-toc-nvm">更改nvm源</a></li>
-  <li><a href="#node" id="markdown-toc-node">安装node</a></li>
-  <li><a href="#nvm-1" id="markdown-toc-nvm-1">nvm常用命令</a></li>
-  <li><a href="#npm" id="markdown-toc-npm">附：设置npm源</a></li>
+  <li><a href="#section" id="markdown-toc-section">获取安装包</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">安装软件</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">延伸命令</a></li>
 </ul>
 
-<p>关于linux如何配置node环境，因为node环境需要干净的系统，所以linux是再好不过了，windows一直有不知名的bug，而且网上的node教程大多是面向linux环境的，所以配置一个linux的node环境是最好的，当然你可以用一个VM虚拟机配置linux，新手推荐Ubuntu甚至deepin都可以，图形化，方便有效，后期习惯了再去用centos，cenos主要是命令式的方便学习，不适合初学者，最起码不适合不熟悉linux的孩子。</p>
+<p>当你把linux环境布置好了之后，又有一个蛋疼的事情来了，一些IDE，或者是linux下的软件这么装？当然如果是centos只需要命令式的就好了，一般都只要apt-get一下就OK了，我这里说的是ubuntu或者deepin之类的图形界面式的，我是小白啦，只能从图形开始玩。</p>
 
-<h2 id="section">安装</h2>
+<h2 id="section">获取安装包</h2>
 
-<p>首先安装linux，我是用的ubuntu的VM虚拟机，装好后执行以下命令安装nvm：</p>
+<p>打开控制台执行以下命令获取Chrome安装包，以64位为例：</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+<div class="highlighter-rouge"><pre class="codehilite"><code>wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 </code></pre></div>
 
-<p>如果系统说没有找到curl，请执行以下命令安装，那直接按照系统说的执行就好了，笔者是已经配置好了所以忘记那个命令了哈哈哈。</p>
+<p>32位可以执行以下命令，只是链接不同而已：</p>
 
-<h2 id="nvm">更改nvm源</h2>
-
-<p>nvm安装后如果你直接执行<code class="highlighter-rouge">nvm install v6.0.0</code>（比方说我要安装6.0.0版本）你会发现安装超慢，所以要把安装源该成阿里巴巴的源：</p>
-
-<p>命令<code class="highlighter-rouge">ll -a</code>找到根目录下的.bashrc文件
-为了以防万一先执行以下命令备份.bashrc文件：</p>
-
-<div class="highlighter-rouge"><pre class="codehilite"><code>cp .bashrc .bashrc_back
+<div class="highlighter-rouge"><pre class="codehilite"><code>wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
 </code></pre></div>
 
-<p>这样你就备份了.bashrc文件，如果出问题直接把这两个名字换下就回来了。</p>
+<p>之后根目录将会有一个deb的安装包，当然你如果嫌在linux获取下载包慢或者资源的问题，可以在物理机或者别的windows的机子上用类似迅雷的p2p下载器下载好，然后VM的话用tool工具共享过来，或者直接用微云之类的云盘中转过来，这样就不会慢了。</p>
 
-<p>接着安装vim编辑器，执行：</p>
+<h2 id="section-1">安装软件</h2>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>sudo apt-get install vim
+<p>确保自己在根目录~下，执行以下命令执行安装：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>sudo dpkg -i google-chrome*; sudo apt-get -f install
 </code></pre></div>
 
-<p><code class="highlighter-rouge">vim .bashrc</code>打开.bashrc文件，往文件末端添加如下代码，vim的修改方式请自行百度咯，打开之后i进编辑模式，改好ctrl+c退出编辑模式然后shirft+ZZ保存就可以了。</p>
+<p>接下来系统就会执行安装命令，可能会需要你确定以下，输入Y就可以了。</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code># nvm
-export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
+<h2 id="section-2">延伸命令</h2>
+
+<p>理论上该安装命令可以安装所有deb的安装包，只要根目录下有你需要的安装包，可以不用wget，用其他方式从云盘或者哪里搞过来，然后执行命令：</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>sudo dpkg -i xxxxxxx*; sudo apt-get -f install
 </code></pre></div>
 
-<p>更改完后退出保存，然后执行<code class="highlighter-rouge">source .bashrc</code>命令，这样更改就生效了。</p>
-
-<h2 id="node">安装node</h2>
-
-<p>利用nvm版本管理器：</p>
-<ul>
-  <li>nvm ls 查看已经安装的版本</li>
-  <li>nvm ls-remote 查看可用的版本</li>
-  <li>nvm install v6.0.0 安装v6.0.0版本</li>
-  <li>nvm alias default 6.0.0 设置6.0.0为默认版本</li>
-</ul>
-
-<h2 id="nvm-1">nvm常用命令</h2>
-
-<ul>
-  <li>nvm install <version> ## 安装指定版本，可模糊安装，如：安装v4.4.0，既可nvm install v4.4.0，又可nvm install 4.4</version></li>
-  <li>nvm uninstall <version> ## 删除已安装的指定版本，语法与install类似</version></li>
-  <li>nvm use <version> ## 切换使用指定的版本node</version></li>
-  <li>nvm ls ## 列出所有安装的版本</li>
-  <li>nvm ls-remote ## 列出所以远程服务器的版本（官方node version list）</li>
-  <li>nvm current ## 显示当前的版本</li>
-  <li>nvm alias <name> <version> ## 给不同的版本号添加别名</version></name></li>
-  <li>nvm unalias <name> ## 删除已定义的别名</name></li>
-  <li>nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</version></li>
-</ul>
-
-<h2 id="npm">附：设置npm源</h2>
-
-<p>执行以下命令查看npm当前源：</p>
-
-<div class="highlighter-rouge"><pre class="codehilite"><code>npm config -g get registry
-</code></pre></div>
-
-<p>设置成淘宝镜像：</p>
-
-<div class="highlighter-rouge"><pre class="codehilite"><code>npm config -g set registry https://registry.npm.taobao.org
-</code></pre></div>
+<p>把xxxxxxx换成安装包的开头几个单词就可以了。</p>
 
         </article>
         <hr>
@@ -272,7 +226,11 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                         
@@ -280,7 +238,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="https://shanky-xieqq.github.io/2017/05/01/how-to-install-soft-in-linux/">如何在linux里安装软件[以Chrome为例]
+                            <a href="https://shanky-xieqq.github.io/2017/04/30/how-to-make-ubuntu-node-environment/">如何利用nvm版本管理器配置Ubuntu的node环境
                             
                             </a>
                         </li>
@@ -295,24 +253,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="https://shanky-xieqq.github.io/2016/11/25/how-to-write-a-count-down/">前端如何写一个精确的倒计时
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
                     
                 
@@ -323,32 +264,11 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="https://shanky-xieqq.github.io/2016/11/22/js-create-file-and-download/">使用 JavaScript 创建并下载文件
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
                     
                 
@@ -359,7 +279,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -367,23 +287,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                 
                     
                 
@@ -394,23 +298,11 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -421,7 +313,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -429,23 +321,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                 
                     
                 
@@ -456,24 +332,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="https://shanky-xieqq.github.io/2016/06/10/JavaScript-good-parts-note3/">JavaScript 语言精粹笔记3-方法、毒瘤等
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
                     
                 
@@ -484,7 +343,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -492,31 +351,11 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                 
                     
                 
@@ -527,7 +366,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -535,7 +374,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -543,31 +382,7 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                 
                     
                 
@@ -578,23 +393,11 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
                 
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -607,13 +410,11 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
         <div class="post-recent">
     <div class="pre">
         
-        <p><strong>上一篇</strong> <a href="/2016/11/25/how-to-write-a-count-down/">前端如何写一个精确的倒计时</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/04/30/how-to-make-ubuntu-node-environment/">如何利用nvm版本管理器配置Ubuntu的node环境</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2017/05/01/how-to-install-soft-in-linux/">如何在linux里安装软件[以Chrome为例]</a></p>
         
     </div>
 </div>

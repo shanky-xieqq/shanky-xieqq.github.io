@@ -43,7 +43,7 @@ cp .bashrc .bashrc_back
 sudo apt-get install vim
 ```
 
-`vim .bashrc`打开.bashrc文件，往文件末端添加如下代码，vim的修改方式请自行百度咯，打开之后i进编辑模式，改好ctrl+c退出编辑模式然后shirt+ZZ保存就可以了。
+`vim .bashrc`打开.bashrc文件，往文件末端添加如下代码，vim的修改方式请自行百度咯，打开之后i进编辑模式，改好ctrl+c退出编辑模式然后shirft+ZZ保存就可以了。
 
 ```
 # nvm
