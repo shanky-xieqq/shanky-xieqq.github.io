@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>hello jekyll!</title>
-    <meta name="description" content="当年创建 jekyll 时默认的一篇文章，没什么意义，我也一直没删除，留个纪念吧。">
+    <title>让jekyll服务可以在局域网中访问</title>
+    <meta name="description" content="本站是基于jekyll和github pages搭建的，jekyll搭建自己的博客非常方便，通过jekyll serve -w可以持续监控文件的修改情况、编译成HTML并通过HTTP服务给本机（localhost）进行访问。但是当你使用虚拟机的时候，特别是centos虚拟机连图形界面都没有，这时候你必须把它上传到...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="https://shanky-xieqq.github.io/2015/02/10/welcome-to-jekyll/">
+    <link rel="canonical" href="https://shanky-xieqq.github.io/2017/05/03/how-to-make-jekyll-on-lan/">
     <link rel="alternate" type="application/rss+xml" title="Shanky" href="https://shanky-xieqq.github.io/feed.xml ">
 
 
@@ -43,18 +43,6 @@
     </script>
 
 
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
-    "HTML-CSS": {
-      linebreaks: { automatic: true, width: "container" }
-    }
-});
-</script>
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 </head>
 
@@ -140,11 +128,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>hello jekyll!</h1>
+        <h1>让jekyll服务可以在局域网中访问</h1>
         <div class="label">
 
             <div class="label-card">
-                2015-02-10
+                2017-05-03
             </div>
 
             <div class="label-card">
@@ -188,27 +176,22 @@
         </div>
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
-        <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">更改参数</a></li>
+</ul>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>本站是基于jekyll和github pages搭建的，jekyll搭建自己的博客非常方便，通过jekyll serve -w可以持续监控文件的修改情况、编译成HTML并通过HTTP服务给本机（localhost）进行访问。但是当你使用虚拟机的时候，特别是centos虚拟机连图形界面都没有，这时候你必须把它上传到github然后通过github.io来访问，这样改一步传一步很麻烦，由于jekyll将地址绑定到了127.0.0.1，导致局域网的其它机器并不能访问它的服务。原先我也走了很多弯路甚至想搭建Apache服务器来让外机可以访问虚拟机的jekyll项目，但实际上只要改变运行jekyll的参数就可以了</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<h2 id="section">更改参数</h2>
 
-<div class="language-ruby highlighter-rouge"><pre class="codehilite"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
+<div class="highlighter-rouge"><pre class="codehilite"><code>$ jekyll serve -w --host=0.0.0.0
+
+Server address: http://0.0.0.0:4000/
+
+Server running... press ctrl-c to stop.
 </code></pre></div>
 
-<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://github.com/jekyll/jekyll-help">Jekyll’s dedicated Help repository</a>.</p>
-
-<p>Block Mathjax</p>
-
-<script type="math/tex; mode=display">f(x) = ax + b</script>
-
-<p>Inline Mathjax $a \neq b$</p>
-
+<p>这样就可以通过该机器的IP地址访问网站了，同个局域网下任何机子都可以。</p>
 
         </article>
         <hr>
@@ -219,25 +202,6 @@
             
                 
                     
-                        
-                        <h2 id="similar_posts">Similar Posts</h2>
-                        <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="https://shanky-xieqq.github.io/2017/05/03/how-to-make-jekyll-on-lan/">让jekyll服务可以在局域网中访问
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
-            
-                
-                    
                 
             
         
@@ -369,18 +333,43 @@
                 
             
         
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
         
-            </ul>
         
 
         <div class="post-recent">
     <div class="pre">
         
+        <p><strong>上一篇</strong> <a href="/2017/05/01/how-to-install-soft-in-linux/">如何在linux里安装软件[以Chrome为例]</a></p>
+        
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2015/02/16/create-my-blog-with-jekyll/">Jekyll 搭建静态博客</a></p>
         
     </div>
 </div>
