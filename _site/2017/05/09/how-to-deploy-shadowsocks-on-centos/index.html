@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jekyll 搭建静态博客</title>
-    <meta name="description" content="一直以来都想搭建一个自己的博客，但是近半年做项目太忙，再加上教研室的网络很坑爹，所以也一直没顾得上。之前用过 WordPress 托管在免费的京东云擎上，但是速度太慢。在知乎上看到一些相关的内容，于是选择了在github上用jekyll搭建博客。">
+    <title>centos7部署shadowsocks</title>
+    <meta name="description" content="首先需要一台国外的VPS，推荐kvmla有永久8折的优惠码。VPS选择Centos7的版本，mini或者minimal都可以，服务器当然小点好。">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="https://shanky-xieqq.github.io/2015/02/16/create-my-blog-with-jekyll/">
+    <link rel="canonical" href="https://shanky-xieqq.github.io/2017/05/09/how-to-deploy-shadowsocks-on-centos/">
     <link rel="alternate" type="application/rss+xml" title="Shanky" href="https://shanky-xieqq.github.io/feed.xml ">
 
 
@@ -128,11 +128,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>Jekyll 搭建静态博客</h1>
+        <h1>centos7部署shadowsocks</h1>
         <div class="label">
 
             <div class="label-card">
-                2015-02-16
+                2017-05-09
             </div>
 
             <div class="label-card">
@@ -147,7 +147,7 @@
 <span class="categories">
   
     
-        <a href="/category/#jekyll" title="Category: jekyll" rel="category">jekyll</a>
+        <a href="/category/#centos" title="Category: centos" rel="category">centos</a>
     
   
 
@@ -164,11 +164,14 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#jekyll" title="Tag: jekyll" rel="tag">jekyll</a-->
-        <a href="/tag/#jekyll" title="Tag: jekyll" rel="tag">jekyll</a>&nbsp;
+        <!--a href="/tag/#centos" title="Tag: centos" rel="tag">centos</a-->
+        <a href="/tag/#centos" title="Tag: centos" rel="tag">centos</a>&nbsp;
     
-        <!--a href="/tag/#RubyGems" title="Tag: RubyGems" rel="tag">RubyGems</a-->
-        <a href="/tag/#RubyGems" title="Tag: RubyGems" rel="tag">RubyGems</a>
+        <!--a href="/tag/#shadowsocks" title="Tag: shadowsocks" rel="tag">shadowsocks</a-->
+        <a href="/tag/#shadowsocks" title="Tag: shadowsocks" rel="tag">shadowsocks</a>&nbsp;
+    
+        <!--a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a-->
+        <a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a>
     
   
 
@@ -180,163 +183,74 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">搭建过程</a>    <ul>
-      <li><a href="#ruby" id="markdown-toc-ruby">安装Ruby</a></li>
-      <li><a href="#rubygems" id="markdown-toc-rubygems">安装RubyGems</a></li>
-      <li><a href="#rubygemsjekyll" id="markdown-toc-rubygemsjekyll">用RubyGems安装Jekyll</a></li>
-      <li><a href="#section-1" id="markdown-toc-section-1">创建博客</a></li>
-    </ul>
-  </li>
-  <li><a href="#section-2" id="markdown-toc-section-2">后续</a></li>
-  <li><a href="#section-3" id="markdown-toc-section-3">可能出现的问题</a>    <ul>
-      <li><a href="#hitimeshitimes-loaderror" id="markdown-toc-hitimeshitimes-loaderror"><code class="highlighter-rouge">hitimes/hitimes (LoadError)</code></a></li>
-    </ul>
-  </li>
+  <li><a href="#shadowsocks" id="markdown-toc-shadowsocks">安装Shadowsocks</a></li>
+  <li><a href="#shadowsocks-1" id="markdown-toc-shadowsocks-1">配置Shadowsocks</a></li>
+  <li><a href="#section" id="markdown-toc-section">开防火墙</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">启动服务</a></li>
 </ul>
 
-<p>一直以来都想搭建一个自己的博客，但是近半年做项目太忙，再加上教研室的网络很坑爹，所以也一直没顾得上。之前用过 WordPress 托管在免费的京东云擎上，但是速度太慢。在知乎上看到一些相关的内容，于是选择了在github上用jekyll搭建博客。</p>
+<p>首先需要一台国外的VPS，推荐<a href="https://www.kvmla.com">kvmla</a>有永久8折的优惠码。</p>
 
-<h2 id="section">搭建过程</h2>
+<p>VPS选择Centos7的版本，mini或者minimal都可以，服务器当然小点好。</p>
 
-<p>在jekyll的官网上 <a href="http://jekyllrb.com/">http://jekyllrb.com/</a> 其实已经说得比较明白了，我在这里还是简单的说一下吧。我用的是Windows系统。  <br />
-主要环节有：安装Ruby，安装RubyGems，安装jekyll，安装代码高亮插件，安装node.js</p>
+<h4 id="shadowsocks">安装Shadowsocks</h4>
 
-<h3 id="ruby">安装Ruby</h3>
+<p>在命令端输入下面命令并回车</p>
 
-<p>ruby官网下载安装：<a href="https://www.ruby-lang.org/en/downloads/">https://www.ruby-lang.org/en/downloads/</a></p>
-
-<p>安装完成后配置环境变量</p>
-
-<p>在命令提示符中，得到ruby版本号，如下图，即安装成功</p>
-
-<p><img src="http://ww4.sinaimg.cn/large/7011d6cfjw1f2ue0e393vj20cu00t748.jpg" alt="" /></p>
-
-<h3 id="rubygems">安装RubyGems</h3>
-
-<p>官网下载 <a href="http://rubygems.org/pages/download">http://rubygems.org/pages/download</a> rubygems-2.4.5.zip</p>
-
-<p>cd到RubyGems目录</p>
-
-<p><img src="http://ww1.sinaimg.cn/large/7011d6cfjw1f2ue1l2yscj20gk02amxj.jpg" alt="" /></p>
-
-<p>执行安装</p>
-
-<p><img src="http://ww1.sinaimg.cn/large/7011d6cfjw1f2ue1w8eqnj20bx00hglg.jpg" alt="" /></p>
-
-<h3 id="rubygemsjekyll">用RubyGems安装Jekyll</h3>
-
-<p>执行下面的语句安装</p>
-
-<p><img src="http://ww4.sinaimg.cn/large/7011d6cfjw1f2ue2g2p3uj207x00ft8j.jpg" alt="" /></p>
-
-<p>安装结束画面</p>
-
-<p><img src="http://ww4.sinaimg.cn/large/7011d6cfjw1f2ue32drwhj20hv09xq5m.jpg" alt="" /></p>
-
-<p>至此jekyll就已经安装完毕了，后续就是个性化的自己设定了。</p>
-
-<h3 id="section-1">创建博客</h3>
-
-<p>在d盘新建一个工作区jekyllWorkspace</p>
-
-<p>cd到jekyllWorkspace</p>
-
-<p>执行jekyll new name创建新的工作区</p>
-
-<p><img src="http://ww3.sinaimg.cn/large/7011d6cfjw1f2ue3lt31nj20cj02nt8u.jpg" alt="" /></p>
-
-<p>文件结构如下：</p>
-
-<p><img src="http://ww1.sinaimg.cn/large/7011d6cfjw1f2ue3ujsybj20ek06wabh.jpg" alt="" /></p>
-
-<p>cd到博客文件夹，开启服务器</p>
-
-<p><img src="http://ww1.sinaimg.cn/large/7011d6cfjw1f2ue47y9lgj20ao00f0sl.jpg" alt="" /></p>
-
-<p>watch为了检测文件夹内的变化，即修改后不需要重新启动jekyll</p>
-
-<p>我的环境下启动报错(你的可能没有)，再安装yajl-ruby和rouge</p>
-
-<p><img src="http://ww4.sinaimg.cn/large/7011d6cfjw1f2ue4nelnxj20dd077q49.jpg" alt="" /></p>
-
-<p>再次启动服务器成功</p>
-
-<p><img src="http://ww4.sinaimg.cn/large/7011d6cfjw1f2ue4v42koj20g505bdgy.jpg" alt="" /></p>
-
-<p>访问 http://localhost:4000/</p>
-
-<p><img src="http://ww1.sinaimg.cn/large/7011d6cfjw1f2ue56ckwoj20je0eumz3.jpg" alt="" /></p>
-
-<p>详细文章页面</p>
-
-<p><img src="http://ww2.sinaimg.cn/large/7011d6cfjw1f2ue5f3j9cj20je0gyq7a.jpg" alt="" /></p>
-
-<h2 id="section-2">后续</h2>
-
-<ul>
-  <li>整个安装过程参考了jekyll官网，注意jekyll还有一个简体中文官网，不过比较坑（我就被坑了），有些内容没有翻译过来，有可能会走弯路，建议如果想看中文的相关资料，也要中英对照着阅读。<a href="http://jekyllcn.com">jekyll中文网 http://jekyllcn.com</a>, <a href="http://jekyllrb.com">jekyll英文网 http://jekyllrb.com</a></li>
-  <li>jekyll中的css是用sass写的，当然直接在<code class="highlighter-rouge">_sass/_layout.scss</code>中添加css也是可以的。</li>
-  <li>本文是用Markdown格式来写的，相关语法可参考： <a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版) http://wowubuntu.com/markdown/</a></li>
-  <li>按照本文的说明搭建完博客后，用<code class="highlighter-rouge">github Pages</code>托管就可以看到了。注意，在github上面好像不支持rouge，所以要push到github上时，我将配置文件_config.yml中的代码高亮改变为<code class="highlighter-rouge">highlighter: pygments</code>就可以了</li>
-  <li>博客默认是没有评论系统的，本文的评论系统使用了多说，详细安装办法可访问<a href="http://duoshuo.com/">多说官网 http://duoshuo.com/</a>，当然也可以使用<a href="http://changyan.sohu.com/">搜狐畅言 http://changyan.sohu.com/</a>作为评论系统。</li>
-  <li>也可以绑定自己的域名，如果没有域名，可以在<a href="http://www.godaddy.com/">godaddy http://www.godaddy.com/</a>上将域名放入购物车等待降价，买之。</li>
-  <li>祝各位新年快乐！</li>
-</ul>
-
-<hr />
-
-<h2 id="section-3">可能出现的问题</h2>
-
-<h3 id="hitimeshitimes-loaderror"><code class="highlighter-rouge">hitimes/hitimes (LoadError)</code></h3>
-
-<p><strong>错误代码：</strong></p>
-
-<div class="highlighter-rouge"><pre class="codehilite"><code>C:/Ruby22/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- hitimes/hitimes (LoadError)
+<div class="highlighter-rouge"><pre class="codehilite"><code>	yum -y update
+	yum install -y python-setuptools &amp;&amp; easy_install pip
+	pip install shadowsocks
+	yum clean all
 </code></pre></div>
 
-<p><strong>解决方法：</strong></p>
+<p><code class="highlighter-rouge">yum clean all</code>只是清空安装包和缓存，因为新装的服务器 <code class="highlighter-rouge">yum -y install</code>应该会更新很多包，所以这里清空一下缓存和安装好的安装包,执行这些命令后服务器端已经安装好Shadowsocks了。</p>
 
-<p>在stackoverflow上又一个很好的解决方法。<a href="http://stackoverflow.com/questions/28985481/hitimes-require-error-when-running-jekyll-serve-on-windows-8-1">hitimes require error when running jekyll serve on windows 8.1</a> 虽然上面的题主问的是 win 8.1 系统下的情况，但是同样适用于 win7。下面我简单翻译一下错误原因和解决方法。</p>
+<h4 id="shadowsocks-1">配置Shadowsocks</h4>
 
-<blockquote>
-  <p>可能是 Ruby 2.2 和 hitimes-1.2.2-x86-mingw32 中有一些 ABI 变化，少了一些相关的类库。</p>
+<p>执行下面命令使用 vi 编辑器编辑Shadowsocks配置文件</p>
 
-  <p>所以卸载 hitimes 并通过 <code class="highlighter-rouge">--platform ruby</code> 重装即可。代码如下：</p>
-</blockquote>
-
-<div class="highlighter-rouge"><pre class="codehilite"><code>gem uni hitimes
-**Remove ALL versions**
-gem ins hitimes -v 1.2.1 --platform ruby
+<div class="highlighter-rouge"><pre class="codehilite"><code> 	vi /etc/shadowsocks.json
 </code></pre></div>
 
-<blockquote>
-  <p>然后将自动重新编译 hitimes 并适用于 Ruby 2.2</p>
-</blockquote>
+<p>将如下配置文本粘贴到Shadowsocks配置文件中去</p>
 
-<p>下面是我自己的卸载和安装过程：</p>
+<div class="highlighter-rouge"><pre class="codehilite"><code><span class="p">{</span><span class="w">
+	</span><span class="nt">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0.0"</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"server_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">11520</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"local_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"local_port"</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"timeout"</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monkeyd"</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes-256-cfb"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>E:\GitWorkSpace\gaohaoyang.github.io&gt;gem uni hitimes
+<p>服务器端口号(server_port)可以随意（大于1024），本地端口默认1080（socks5的国际惯例）。加密方式也可以选其他的，aes256安全性比较高，但可能因此在加解密上花更多时间，增加延迟。</p>
 
-You have requested to uninstall the gem:
-        hitimes-1.2.2-x86-mingw32
+<p>“server” 指服务器公网ip地址，此处为防止报错直接写成 0.0.0.0 ，”server_port” 指定连接接端口，”password” 指定连接密码，”method” 指定加密方式</p>
 
-timers-4.0.1 depends on hitimes (&gt;= 0)
-If you remove this gem, these dependencies will not be met.
-Continue with Uninstall? [yN]  y
-Successfully uninstalled hitimes-1.2.2-x86-mingw32
+<p>有的服务器server地址必须写成 0.0.0.0 才OK，否则会遇到<code class="highlighter-rouge">socket.error: [Errno 99] Cannot assign requested address</code>错误！</p>
 
-E:\GitWorkSpace\gaohaoyang.github.io&gt;gem ins hitimes -v 1.2.1 --platform ruby
-Fetching: hitimes-1.2.1.gem (100%)
-Temporarily enhancing PATH to include DevKit...
-Building native extensions.  This could take a while...
-Successfully installed hitimes-1.2.1
-Parsing documentation for hitimes-1.2.1
-Installing ri documentation for hitimes-1.2.1
-Done installing documentation for hitimes after 1 seconds
-1 gem installed
+<h4 id="section">开防火墙</h4>
+
+<p>执行以下命令打开firewalld防火墙端口</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code>	firewall-cmd --zone=public --add-port=8989/tcp --permanent
+	firewall-cmd --zone=public --add-port=8989/udp --permanent
+	firewall-cmd --reload
 </code></pre></div>
 
-<p>关于，<a href="https://rubygems.org/gems/hitimes/versions/1.2.2">hitimes</a> 是一个快速的高效的定时器解决方案库，详情可以去官网查看。</p>
+<h4 id="section-1">启动服务</h4>
+
+<p>执行下面命令启动Shadowsocks服务</p>
+
+<div class="highlighter-rouge"><pre class="codehilite"><code> 	ssserver -c /etc/shadowsocks.json -d start
+</code></pre></div>
+
+<p>记住上这条命令，重启linux后要执行一遍！否则不能启动Shadowsocks</p>
+
+<p>当然你也可以把它加到开机启动项里，这样就不用每次手动启动了。
+ 客户端的话（windows和移动端）直接按照上面设置的配置添加线路即可。</p>
 
         </article>
         <hr>
@@ -350,22 +264,16 @@ Done installing documentation for hitimes after 1 seconds
                 
                     
                 
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
                     
                 
             
         
             
             
+                
+                    
+                
+                    
                 
                     
                         
@@ -373,7 +281,7 @@ Done installing documentation for hitimes after 1 seconds
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="https://shanky-xieqq.github.io/2017/05/03/how-to-make-jekyll-on-lan/">让jekyll服务可以在局域网中访问
+                            <a href="https://shanky-xieqq.github.io/2017/05/01/how-to-install-soft-in-linux/">如何在linux里安装软件[以Chrome为例]
                             
                             </a>
                         </li>
@@ -381,6 +289,40 @@ Done installing documentation for hitimes after 1 seconds
                         
                     
                 
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="https://shanky-xieqq.github.io/2017/04/30/how-to-make-ubuntu-node-environment/">如何利用nvm版本管理器配置Ubuntu的node环境
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
@@ -392,58 +334,11 @@ Done installing documentation for hitimes after 1 seconds
                 
                     
                 
-            
-        
-            
-            
-                
-                    
-                
                     
                 
             
                 
                     
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
                 
                     
                 
@@ -458,10 +353,6 @@ Done installing documentation for hitimes after 1 seconds
                 
                     
                 
-            
-                
-                    
-                
                     
                 
             
@@ -470,28 +361,11 @@ Done installing documentation for hitimes after 1 seconds
                 
                     
                 
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
                     
                 
             
                 
                     
-                
-                    
-                
-            
                 
                     
                 
@@ -506,10 +380,6 @@ Done installing documentation for hitimes after 1 seconds
                 
                     
                 
-            
-                
-                    
-                
                     
                 
             
@@ -518,7 +388,19 @@ Done installing documentation for hitimes after 1 seconds
                 
                     
                 
+                    
+                
             
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
                 
                     
                 
@@ -533,7 +415,116 @@ Done installing documentation for hitimes after 1 seconds
                 
                     
                 
+                    
+                
             
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
                 
                     
                 
@@ -548,13 +539,11 @@ Done installing documentation for hitimes after 1 seconds
         <div class="post-recent">
     <div class="pre">
         
-        <p><strong>上一篇</strong> <a href="/2015/02/10/welcome-to-jekyll/">hello jekyll!</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/05/03/how-to-make-jekyll-on-lan/">让jekyll服务可以在局域网中访问</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2015/03/21/teach-girlfriend-html-css/">Teach Girlfriend to make a Web Pages like Zhihu</a></p>
         
     </div>
 </div>
