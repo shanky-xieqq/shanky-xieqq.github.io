@@ -61,10 +61,12 @@ VPS选择Centos7的版本，mini或者minimal都可以，服务器当然小点�
  执行以下命令打开firewalld防火墙端口
  
 ```
-	firewall-cmd --zone=public --add-port=8989/tcp --permanent
-	firewall-cmd --zone=public --add-port=8989/udp --permanent
+	firewall-cmd --zone=public --add-port=11520/tcp --permanent
+	firewall-cmd --zone=public --add-port=11520/udp --permanent
 	firewall-cmd --reload
 ```
+
+头两条的add-port=11520是开启端口，按照配置文件里的添加即可，最后一条是重启firewall防火墙。
  
 #### 启动服务
  
