@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>centos7部署shadowsocks</title>
-    <meta name="description" content="首先需要一台国外的VPS，推荐kvmla有永久8折的优惠码。VPS选择Centos7的版本，mini或者minimal都可以，服务器当然小点好。">
+    <title>IE8及以下input的placeholder兼容</title>
+    <meta name="description" content="最近的项目中遇到了需要兼容到IE8的placeholder，稍微记录一下以便以后或者需要的童鞋使用。网上很多关于IE8placeholder的例子，有两个input重叠的、有使用vlue的，有用span替代placeholder的..很多，我是因为要用到Angular的表单验证，所以想稍微整合一下，整成自己所需要的。">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="https://shanky-xieqq.github.io/2017/05/09/how-to-deploy-shadowsocks-on-centos/">
+    <link rel="canonical" href="https://shanky-xieqq.github.io/2017/05/12/how-to-make-placeholder-on-ie/">
     <link rel="alternate" type="application/rss+xml" title="Shanky" href="https://shanky-xieqq.github.io/feed.xml ">
 
 
@@ -128,11 +128,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>centos7部署shadowsocks</h1>
+        <h1>IE8及以下input的placeholder兼容</h1>
         <div class="label">
 
             <div class="label-card">
-                2017-05-09
+                2017-05-12
             </div>
 
             <div class="label-card">
@@ -147,7 +147,7 @@
 <span class="categories">
   
     
-        <a href="/category/#centos" title="Category: centos" rel="category">centos</a>
+        <a href="/category/#IE" title="Category: IE" rel="category">IE</a>
     
   
 
@@ -164,14 +164,11 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#centos" title="Tag: centos" rel="tag">centos</a-->
-        <a href="/tag/#centos" title="Tag: centos" rel="tag">centos</a>&nbsp;
+        <!--a href="/tag/#IE" title="Tag: IE" rel="tag">IE</a-->
+        <a href="/tag/#IE" title="Tag: IE" rel="tag">IE</a>&nbsp;
     
-        <!--a href="/tag/#shadowsocks" title="Tag: shadowsocks" rel="tag">shadowsocks</a-->
-        <a href="/tag/#shadowsocks" title="Tag: shadowsocks" rel="tag">shadowsocks</a>&nbsp;
-    
-        <!--a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a-->
-        <a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a>
+        <!--a href="/tag/#%E5%85%BC%E5%AE%B9%E6%80%A7" title="Tag: 兼容性" rel="tag">兼容性</a-->
+        <a href="/tag/#兼容性" title="Tag: 兼容性" rel="tag">兼容性</a>
     
   
 
@@ -183,76 +180,124 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#shadowsocks" id="markdown-toc-shadowsocks">安装Shadowsocks</a></li>
-  <li><a href="#shadowsocks-1" id="markdown-toc-shadowsocks-1">配置Shadowsocks</a></li>
-  <li><a href="#section" id="markdown-toc-section">开防火墙</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">启动服务</a></li>
+  <li><a href="#html" id="markdown-toc-html">Html</a></li>
+  <li><a href="#css" id="markdown-toc-css">Css</a></li>
+  <li><a href="#js" id="markdown-toc-js">JS</a></li>
+  <li><a href="#css-1" id="markdown-toc-css-1">附录：重置css</a></li>
 </ul>
 
-<p>首先需要一台国外的VPS，推荐<a href="https://www.kvmla.com">kvmla</a>有永久8折的优惠码。</p>
+<p>最近的项目中遇到了需要兼容到IE8的placeholder，稍微记录一下以便以后或者需要的童鞋使用。</p>
 
-<p>VPS选择Centos7的版本，mini或者minimal都可以，服务器当然小点好。</p>
+<p>网上很多关于IE8placeholder的例子，有两个input重叠的、有使用vlue的，有用span替代placeholder的..很多，我是因为要用到Angular的表单验证，所以想稍微整合一下，整成自己所需要的。</p>
 
-<h4 id="shadowsocks">安装Shadowsocks</h4>
+<h4 id="html">Html</h4>
 
-<p>在命令端输入下面命令并回车</p>
+<p>首先table是做表单最方便的东西了，所以这里就用一个简单的table做个小表单,为方便写样式和js加两个class。</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>	yum -y update
-	yum install -y python-setuptools &amp;&amp; easy_install pip
-	pip install shadowsocks
-	yum clean all
+<div class="highlighter-rouge"><pre class="codehilite"><code>&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;账户：&lt;/td&gt;
+		&lt;td&gt;
+			&lt;label class="inputs"&gt;
+				&lt;input type="text" placeholder="请输入账户" /&gt;
+				&lt;span class="iePlaceholder"&gt;&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;密码：&lt;/td&gt;
+		&lt;td&gt;
+			&lt;label class="inputs"&gt;
+			&lt;input type="password" placeholder="请输入密码" /&gt;
+			&lt;span class="iePlaceholder"&gt;&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;邮箱：&lt;/td&gt;
+		&lt;td&gt;
+			&lt;label class="inputs"&gt;
+			&lt;input type="email" placeholder="请输入邮箱" /&gt;
+			&lt;span class="iePlaceholder"&gt;&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
 </code></pre></div>
 
-<p><code class="highlighter-rouge">yum clean all</code>只是清空安装包和缓存，因为新装的服务器 <code class="highlighter-rouge">yum -y install</code>应该会更新很多包，所以这里清空一下缓存和安装好的安装包,执行这些命令后服务器端已经安装好Shadowsocks了。</p>
+<p>html有了，接下来就是写那个隐藏placeholder的样式，因为要和原先的placeholder重叠，所以必须先<code class="highlighter-rouge">重置CSS</code>(见本文末)，这样在所有浏览器中才会一致。</p>
 
-<h4 id="shadowsocks-1">配置Shadowsocks</h4>
+<h4 id="css">Css</h4>
 
-<p>执行下面命令使用 vi 编辑器编辑Shadowsocks配置文件</p>
-
-<div class="highlighter-rouge"><pre class="codehilite"><code> 	vi /etc/shadowsocks.json
+<div class="highlighter-rouge"><pre class="codehilite"><code>input{border: 1px solid #ccc;font-size: 14px;padding: 4px 0px;line-height: 24px;height: 24px;}
+.inputs{position: relative;}
+.inputs .iePlaceholder{position: absolute;top: 0px;font-size: 14px;top: 2px;left: 1px;color: #a9a9a9;cursor: text;display: none;}
 </code></pre></div>
 
-<p>将如下配置文本粘贴到Shadowsocks配置文件中去</p>
+<h4 id="js">JS</h4>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code><span class="p">{</span><span class="w">
-	</span><span class="nt">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0.0"</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"server_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">11520</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"local_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"local_port"</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"timeout"</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monkeyd"</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes-256-cfb"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+<p>我所用的js是基于jQuery的，所以在添加js前记得先引用jQuery哦。</p>
 
-<p>服务器端口号(server_port)可以随意（大于1024），本地端口默认1080（socks5的国际惯例）。加密方式也可以选其他的，aes256安全性比较高，但可能因此在加解密上花更多时间，增加延迟。</p>
-
-<p>“server” 指服务器公网ip地址，此处为防止报错直接写成 0.0.0.0 ，”server_port” 指定连接接端口，”password” 指定连接密码，”method” 指定加密方式</p>
-
-<p>有的服务器server地址必须写成 0.0.0.0 才OK，否则会遇到<code class="highlighter-rouge">socket.error: [Errno 99] Cannot assign requested address</code>错误！</p>
-
-<h4 id="section">开防火墙</h4>
-
-<p>执行以下命令打开firewalld防火墙端口</p>
-
-<div class="highlighter-rouge"><pre class="codehilite"><code>	firewall-cmd --zone=public --add-port=11520/tcp --permanent
-	firewall-cmd --zone=public --add-port=11520/udp --permanent
-	firewall-cmd --reload
+<div class="highlighter-rouge"><pre class="codehilite"><code>function placeholder(el) {
+	//判断是否未显示placeholder
+	function isplaceholder() {
+		var input = document.createElement("input");
+		return "placeholder" in input;
+	}
+	var $el = $(el);
+	if(isplaceholder() == false &amp;&amp; !('placeholder' in document.createElement('input'))) {
+		$(".iePlaceholder").css("display","block");
+		$('input[placeholder],textarea[placeholder]').each(function() {
+			var that = $(this),
+				text = that.attr('placeholder'),
+			pans = $(this).parent("label").find("span.iePlaceholder");
+			if(that.val() === "") {
+				spans.html(text);
+			}
+			that.focus(function() {
+					if(spans.html() == text) {
+						spans.html("");
+					}
+				})
+				.blur(function() {
+					if(that.val() === "") {
+						spans.html(text);
+					}
+				});
+		});
+	}
+}
+placeholder(".iePlaceholder");
 </code></pre></div>
 
-<p>头两条的add-port=11520是开启端口，按照配置文件里的添加即可，最后一条是重启firewall防火墙。</p>
+<h4 id="css-1">附录：重置css</h4>
 
-<h4 id="section-1">启动服务</h4>
+<p>这个重置Css是我从一个前辈那里拿过来的，一些细节可以自己添加自己修改，所谓自己需要的才是最好的嘛。</p>
 
-<p>执行下面命令启动Shadowsocks服务</p>
-
-<div class="highlighter-rouge"><pre class="codehilite"><code> 	ssserver -c /etc/shadowsocks.json -d start
+<div class="highlighter-rouge"><pre class="codehilite"><code>/*初始化样式*/
+html { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { line-height:1.4; }
+body, input, textarea, select { font-size:16px; color:#333; font-family:arial,"microsoft yahei",Verdana,Geneva,sans-serif; }
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dt, from { margin:0; font-weight:normal; }
+table { border-collapse:collapse; border-spacing:0; }
+ul, ol, dl, dt { padding:0; list-style-type:none; }
+input { border:0; margin:0; padding:0px; background:none; height:20px; line-height:20px; border-radius:3px; }
+input[type="checkbox"], input[type="radio"] { margin-right:5px; height:14px; line-height:14px; }
+a{ color:#333; text-decoration:none; }
+a:hover{ color:#096EA2; text-decoration:none; }
+a img{ border:0; }
+.fl{ float:left !important; }
+.fr{ float:right !important; }
+.clearfix{ zoom:1; }
+.clearfix:before, .clearfix:after { content:""; display:table; }
+.clearfix:after { clear:both; }
+.clearfix { zoom:1; }
+.clear { clear:both; display:block; overflow:hidden; visibility:hidden; width:0; height:0; }
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary { display: block; }
+audio, canvas, progress, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0; }
+progress { vertical-align: baseline; }
 </code></pre></div>
-
-<p>记住上这条命令，重启linux后要执行一遍！否则不能启动Shadowsocks</p>
-
-<p>当然你也可以把它加到开机启动项里，这样就不用每次手动启动了。
- 客户端的话（windows和移动端）直接按照上面设置的配置添加线路即可。</p>
 
         </article>
         <hr>
@@ -266,22 +311,13 @@
                 
                     
                 
-                    
-                
             
                 
                     
                 
                     
                 
-                    
-                
             
-        
-            
-            
-                
-                    
                 
                     
                 
@@ -296,70 +332,10 @@
                 
                     
                 
-                    
-                        
-                        <h2 id="similar_posts">Similar Posts</h2>
-                        <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="https://shanky-xieqq.github.io/2017/05/01/how-to-install-soft-in-linux/">如何在linux里安装软件[以Chrome为例]
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
             
         
             
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="https://shanky-xieqq.github.io/2017/04/30/how-to-make-ubuntu-node-environment/">如何利用nvm版本管理器配置Ubuntu的node环境
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
                 
                     
                 
@@ -374,19 +350,13 @@
                 
                     
                 
-                    
-                
             
                 
                     
                 
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -401,27 +371,7 @@
                 
                     
                 
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
                 
                     
                 
@@ -436,19 +386,13 @@
                 
                     
                 
-                    
-                
             
                 
                     
                 
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -463,6 +407,10 @@
                 
                     
                 
+            
+                
+                    
+                
                     
                 
             
@@ -471,19 +419,7 @@
                 
                     
                 
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
                 
                     
                 
@@ -498,6 +434,10 @@
                 
                     
                 
+            
+                
+                    
+                
                     
                 
             
@@ -506,24 +446,60 @@
                 
                     
                 
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
                     
                 
             
         
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
         
-            </ul>
         
 
         <div class="post-recent">
     <div class="pre">
         
-        <p><strong>上一篇</strong> <a href="/2017/05/03/how-to-make-jekyll-on-lan/">让jekyll服务可以在局域网中访问</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/05/09/how-to-deploy-shadowsocks-on-centos/">centos7部署shadowsocks</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2017/05/12/how-to-make-placeholder-on-ie/">IE8及以下input的placeholder兼容</a></p>
         
     </div>
 </div>

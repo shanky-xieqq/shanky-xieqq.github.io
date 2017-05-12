@@ -5,9 +5,30 @@
     <description></description>
     <link>https://shanky-xieqq.github.io/</link>
     <atom:link href="https://shanky-xieqq.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 10 May 2017 11:21:24 +0800</pubDate>
-    <lastBuildDate>Wed, 10 May 2017 11:21:24 +0800</lastBuildDate>
+    <pubDate>Fri, 12 May 2017 09:48:36 +0800</pubDate>
+    <lastBuildDate>Fri, 12 May 2017 09:48:36 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>IE8及以下input的placeholder兼容</title>
+        <description>
+最近的项目中遇到了需要兼容到IE8的placeholder，稍微记录一下以便以后或者需要的童鞋使用。
+
+网上很多关于IE8placeholder的例子，有两个input重叠的、有使用vlue的，有用span替代placeholder的..很多，我是因为要用到Angular的表单验证，所以想稍微整合一下，整成自己所需要的。
+
+</description>
+        <pubDate>Fri, 12 May 2017 00:00:00 +0800</pubDate>
+        <link>https://shanky-xieqq.github.io/2017/05/12/how-to-make-placeholder-on-ie/</link>
+        <guid isPermaLink="true">https://shanky-xieqq.github.io/2017/05/12/how-to-make-placeholder-on-ie/</guid>
+        
+        <category>IE</category>
+        
+        <category>兼容性</category>
+        
+        
+        <category>IE</category>
+        
+      </item>
     
       <item>
         <title>centos7部署shadowsocks</title>
@@ -226,25 +247,6 @@ VPS选择Centos7的版本，mini或者minimal都可以，服务器当然小点�
         <category>ES5</category>
         
         <category>babel</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>JavaScript 语言精粹笔记3-方法、毒瘤等</title>
-        <description>
-记录一下阅读蝴蝶书的笔记，本篇为书中最后一部分：方法、代码风格、优美的特性、毒瘤、糟粕等。
-
-</description>
-        <pubDate>Fri, 10 Jun 2016 00:00:00 +0800</pubDate>
-        <link>https://shanky-xieqq.github.io/2016/06/10/JavaScript-good-parts-note3/</link>
-        <guid isPermaLink="true">https://shanky-xieqq.github.io/2016/06/10/JavaScript-good-parts-note3/</guid>
-        
-        <category>函数</category>
-        
-        <category>JavaScript</category>
         
         
         <category>JavaScript</category>
