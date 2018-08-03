@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "单行多行超出显示点点点"
-categories: css
-tags: css html
+categories: CSS
+tags: CSS HTML
 ---
 
 * content
@@ -11,7 +11,12 @@ tags: css html
 
 如果实现单行文本的溢出显示省略号很多人应该都知道用`text-overflow:ellipsis`属性来，当然还需要加宽度width属来兼容部分浏览
 
-实现方法：
+
+
+
+#### 单行多行超出显示点点点
+
+单行的实现方法：
 
 ```css
 overflow: hidden;
@@ -27,7 +32,7 @@ white-space: nowrap;
 
 接下来重点说一说多行文本溢出显示省略号，如下。
 
-实现方法：
+多行的实现方法：
 
 ```css
 display: -webkit-box;
