@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "vue 根据 data 中属性的值来，动态设置 class 和 style"
+title:  "vue根据data中的值设置class和style"
 categories: vue
 tags: Javascript vue
 ---
@@ -14,9 +14,10 @@ tags: Javascript vue
 #### 主体
 
 ##### class 动态赋值			
-下面代码是 动态拼接 element-menu 的代码片段		
 
-```js html
+下面代码是动态拼接`element-menu`的代码片段		
+
+```js
 <div v-for="(item,index) in menuList" :key="index">
     <li style="font-size: 14px;" 
         @click="clickOneLeveMenu(item)" 
@@ -38,6 +39,7 @@ data(){
 
 简而言之				
 
+
 ```html
 <div :class="{className:true/false}"></div>
 ```
@@ -46,7 +48,7 @@ data(){
 
 利用三元表单式赋值			
 
-```js html
+```js
 <div:style="{'color':(item.id == flag ? 'red' :'blue')}">test</div>
 
 data(){
