@@ -12,9 +12,13 @@ vue项目移植报错以及解决办法
 
 之前项目中遇到一个坑，把项目从win10系统复制到mac系统上开发，输入命令行 npm run start后会报以下错误： 				
 
+
+
+
+
 #### 主体
 
-```linux
+```js
 ERROR in Missing binding H:\myWork\lvlvPro\lvlvPro\node_modules\node-sass\vendor\win32-ia32-48\binding.node
 
 Node Sass could not find a binding for your current environment: Windows 32-bit with Node.js 6.x
