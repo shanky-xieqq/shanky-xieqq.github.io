@@ -61,7 +61,7 @@ vim /usr/local/etc/nginx/nginx.conf
 
 进入nginx.conf页面后，按 “i" 键进入编辑状态，自定义端口，和配置本地网站TanWeb, 注意设置访问权限( user root owner; )，不然等会访问网站会出现403错误      
 
-![avatar](img/6F0D3D1D-AE03-4407-B90C-FB2248159842.png)     
+![avatar](https://images2018.cnblogs.com/blog/454511/201804/454511-20180413100851619-948024920.png)     
 
 按esc键退出编辑状态，输入  :wq  保存退出nginx.conf页面  
 
