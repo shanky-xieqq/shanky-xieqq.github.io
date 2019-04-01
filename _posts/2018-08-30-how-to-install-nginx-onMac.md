@@ -23,19 +23,19 @@ tags: macOS hack linux
 
 ###### 2.安装brew命令                 
 
-```linux
+```js
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```    
 
 ###### 3.安装nginx
 
-```linux
+```js
 brew install nginx
 ```
 
 ###### 4.启动nginx
 
-```linux
+```js
 sudo nginx
 ```
 
@@ -55,7 +55,7 @@ OK,nginx就安装好了，在浏览器访问的默认端口是8080
 
 然后打开终端，准备编辑nginx配置。     
 
-```linux
+```js
 vim /usr/local/etc/nginx/nginx.conf
 ```
 
@@ -67,7 +67,7 @@ vim /usr/local/etc/nginx/nginx.conf
 
 我用的配置如下：
 
-```linux
+```js
 server{
         listen       8899;
         server_name  localhost;
@@ -81,7 +81,7 @@ server{
 
 重启nginx      
 
-```linux
+```js
 sudo nginx -s reload
 ```
 
@@ -93,7 +93,7 @@ sudo nginx -s reload
 
 那么该如何来显示目录列表呢，配置很简单只需要在location中加一行 `autoindex on;` 即可显示，这样默认显示的文件大小以字节为单位，并且时间和服务器时间相差8小时，所以一般应用中设置根据文件大小进行合适的显示，并且时间显示服务器时间。      
 
-```linux
+```js
 server{
         listen       8899;
         server_name  localhost;
@@ -114,7 +114,7 @@ server{
 
 配置shtml服务也很简单，location里加上下面代码就好了。  
 
-```linux
+```js
 ssi on;
 ssi_silent_errors on;
 ssi_types text/shtml;
@@ -122,7 +122,7 @@ ssi_types text/shtml;
 
 这样我的静态服务器就配置好了。    
 
-```linux
+```js
 server{
         listen       8899;
         server_name  localhost;
