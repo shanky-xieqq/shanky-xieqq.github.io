@@ -16,7 +16,7 @@ tags: css
 ##### 等边三角形-上
       
 
-![](../img/201310290941121.jpg)
+![](/img/201310290941121.jpg)
 
 ```css
 #triangle-up {
@@ -32,7 +32,7 @@ tags: css
 ##### 等边三角形-下
 
 
-![](../img/201310290941322.jpg)
+![](/img/201310290941322.jpg)
 
 ```css
 #triangle-down {
@@ -48,7 +48,7 @@ tags: css
 ##### 等边三角形-左      
      
 
-![](../img/201310290941433.jpg)
+![](/img/201310290941433.jpg)
 
 ```css
 #triangle-left {
@@ -63,7 +63,7 @@ tags: css
 ##### 等边三角形-右     
      
 
-![](../img/201310290941534.jpg)
+![](/img/201310290941534.jpg)
 
 ```css
 #triangle-right {
@@ -78,7 +78,7 @@ tags: css
 ##### 直角三角形-上左
       
 
-![](../img/201310290942025.jpg)
+![](/img/201310290942025.jpg)
 
 ```css
 #triangle-topleft {
@@ -93,7 +93,7 @@ tags: css
 ##### 直角三角形-上右
 
 
-![](../img/201310290942136.jpg)
+![](/img/201310290942136.jpg)
 
 ```css
 #triangle-topright {
@@ -108,7 +108,7 @@ tags: css
 ##### 直角三角形-下左 
      
 
-![](../img/201310290942227.jpg)
+![](/img/201310290942227.jpg)
 
 ```css
 #triangle-bottomleft {
@@ -122,7 +122,7 @@ tags: css
 ##### 直角三角形-下右     
      
 
-![](../img/201310290942328.jpg)
+![](/img/201310290942328.jpg)
 
 ```css
 #triangle-bottomright {
