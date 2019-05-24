@@ -37,7 +37,7 @@ tags: vue
 
 - 组件化开发的好处
 
-```cs
+```
 提高开发效率
 方便重复使用
 简化调试步骤
@@ -48,13 +48,13 @@ tags: vue
 
 - 组件化和模块化的区别
 
-```cs
+```
 组件化是从产品功能角度进行分割，模块化是从代码实现角度进行分割，模块化是组件化的前提和基础。
 ```
 
 - Vue组件化开发
 
-```cs
+```
 单文件系统，样式局部作用域
 基本组成结构：<template/> <script/> <style scoped/>
 组件注册方式：1）公共组件全局注册 2）其余组件局部注册
@@ -66,14 +66,14 @@ tags: vue
 Vue官方文档给予以下说明：
 
 
-```cs
+```
 当注册组件 (或者 prop) 时，可以使用 kebab-case (短横线分隔命名)、camelCase (驼峰式命名) 或 PascalCase (单词首字母大写命名)。
 PascalCase 是最通用的声明约定而 kebab-case 是最通用的使用约定。
 ``` 
 
 命名可遵循以下规则：
 
-```cs
+```
 1、有意义的名词、简短、具有可读性
 2、以小写开头，采用短横线分割命名
 3、公共组件命名以公司名称简拼为命名空间(app-xx.vue)
@@ -86,46 +86,46 @@ PascalCase 是最通用的声明约定而 kebab-case 是最通用的使用约定
 - 基于Vue-cli脚手架的结构基础划分
 
 ```js
-├── index.html                      入口页面
-├── build                           构建脚本目录
-│   ├── build-server.js                 运行本地构建服务器，可以访问构后的页面
-│   ├── build.js                        生产环境构建脚本
-│   ├── dev-client.js                   开发服务器热重载脚本，主要用来实现开发阶段的页面自动刷新
-│   ├── dev-server.js                   运行本地开发服务器
-│   ├── utils.js                        构建相关工具方法
-│   ├── webpack.base.conf.js            wabpack基础配置
-│   ├── webpack.dev.conf.js             wabpack开发环境配置
-│   └── webpack.prod.conf.js            wabpack生产环境配置
-├── config                          项目配置
-│   ├── dev.env.js                      开发环境变量
-│   ├── index.js                        项目配置文件
-│   ├── prod.env.js                     生产环境变量
-│   └── test.env.js                     测试环境变量
-├── mock                            mock数据目录
+├── index.html                      //入口页面
+├── build                           //构建脚本目录
+│   ├── build-server.js                 //运行本地构建服务器，可以访问构后的页面
+│   ├── build.js                        //生产环境构建脚本
+│   ├── dev-client.js                   //开发服务器热重载脚本，主要用来实现开发阶段的页面自动刷新
+│   ├── dev-server.js                   //运行本地开发服务器
+│   ├── utils.js                        //构建相关工具方法
+│   ├── webpack.base.conf.js            //wabpack基础配置
+│   ├── webpack.dev.conf.js             //wabpack开发环境配置
+│   └── webpack.prod.conf.js            //wabpack生产环境配置
+├── config                          //项目配置
+│   ├── dev.env.js                      //开发环境变量
+│   ├── index.js                        //项目配置文件
+│   ├── prod.env.js                     //生产环境变量
+│   └── test.env.js                     //测试环境变量
+├── mock                            //mock数据目录
 │   └── hello.js
-├── package.json                    npm包配置文件，里面定义了项目的npm脚本，依赖包等信息
-├── src                             项目源码目录    
-│   ├── main.js                         入口js文件
-│   ├── App.vue                         根组件
-│   ├── components                      公共组件目录
+├── package.json                    //npm包配置文件，里面定义了项目的npm脚本，依赖包等信息
+├── src                             //项目源码目录    
+│   ├── main.js                         //入口js文件
+│   ├── App.vue                         //根组件
+│   ├── components                      //公共组件目录
 │   │   └── title.vue
-│   ├── assets                          资源目录，这里的资源会被wabpack构建
-│   │   ├── css                         公共样式文件目录
-│   │   ├── js                          公共js文件目录
-│   │   └── img                      图片存放目录
-│   ├── routes                          前端路由
+│   ├── assets                          //资源目录，这里的资源会被wabpack构建
+│   │   ├── css                         //公共样式文件目录
+│   │   ├── js                          //公共js文件目录
+│   │   └── img                      //图片存放目录
+│   ├── routes                          //前端路由
 │   │   └── index.js
-│   ├── store                           应用级数据（state）
+│   ├── store                           //应用级数据（state）
 │   │   └── index.js
-│   └── views                           页面目录
+│   └── views                           //页面目录
 │       ├── hello.vue
 │       └── notfound.vue
-├── static                          纯静态资源，不会被wabpack构建。
-└── test                            测试文件目录（unit&e2e）
-    └── unit                            单元测试
-        ├── index.js                        入口脚本
-        ├── karma.conf.js                   karma配置文件
-        └── specs                           单测case目录
+├── static                          //纯静态资源，不会被wabpack构建。
+└── test                            //测试文件目录（unit&e2e）
+    └── unit                            //单元测试
+        ├── index.js                        //入口脚本
+        ├── karma.conf.js                   //karma配置文件
+        └── specs                           //单测case目录
             └── Hello.spec.js
 ``` 
 
@@ -159,7 +159,7 @@ PascalCase 是最通用的声明约定而 kebab-case 是最通用的使用约定
 
 - vue文件方法声明顺序
 
-```cs
+```
 - components   
 - props    
 - data     
@@ -180,7 +180,7 @@ PascalCase 是最通用的声明约定而 kebab-case 是最通用的使用约定
 代码注释在一个项目的后期维护中显的尤为重要，所以我们要为每一个被复用的组件编写组件使用说明，为组件中每一个方法编写方法说明。
 以下情况，务必添加注释
 
-```cs
+```
 1.公共组件使用说明
 2.各组件中重要函数或者类说明
 3.复杂的业务逻辑处理说明
@@ -191,7 +191,7 @@ PascalCase 是最通用的声明约定而 kebab-case 是最通用的使用约定
 
 - 单行注释
 
-```cs
+```
 普通方法一般使用单行注释// 来说明该方法主要作用
 ```
 
@@ -220,7 +220,7 @@ PascalCase 是最通用的声明约定而 kebab-case 是最通用的使用约定
 
 优秀的项目源码，即使是多人开发，看代码也如出一人之手。统一的编码规范，可使代码更易于阅读，易于理解，易于维护。尽量按照ESLint格式要求编写代码
 
-```cs
+```
 1.使用ES6风格编码源码
     定义变量使用let ,定义常量使用const
     使用export ，import 模块化
