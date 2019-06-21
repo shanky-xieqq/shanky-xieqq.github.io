@@ -20,12 +20,12 @@ type: page
 
 ## 技能清单
 
-前端基础：HTML/CSS/Javascript/Ajax/jQuery
-前端框架：Vue/Bootstrap/Angular/Mui/Mpvue
-前端工具：webPack/Gulp/vue-cli/SaSS/Less
-UI设计：PhotoShop/Sketch/Illustrator/蓝湖
-版本管理：Git/Svn
-云开发：微信公众号/微信小程序
+前端基础：HTML/CSS/Javascript/Ajax/jQuery       
+前端框架：Vue/Bootstrap/Angular/Mui/Mpvue        
+前端工具：webPack/Gulp/vue-cli/SaSS/Less         
+UI设计：PhotoShop/Sketch/Illustrator/蓝湖          
+版本管理：Git/Svn        
+云开发：微信公众号/微信小程序        
 
 
 ## 职业生涯
