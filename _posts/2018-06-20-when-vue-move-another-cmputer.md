@@ -18,7 +18,7 @@ vue项目移植报错以及解决办法
 
 #### 主体
 
-```linux
+```shell
 ERROR in Missing binding H:\myWork\lvlvPro\lvlvPro\node_modules\node-sass\vendor\win32-ia32-48\binding.node
 Node Sass could not find a binding for your current environment: Windows 32-bit with Node.js 6.x
 Found bindings for the following environments:

@@ -19,7 +19,7 @@ tags: IE 兼容性
 
 首先table是做表单最方便的东西了，所以这里就用一个简单的table做个小表单,为方便写样式和js加两个class。
 
-```
+```html
 <table>
 	<tr>
 		<td>账户：</td>
@@ -55,7 +55,7 @@ html有了，接下来就是写那个隐藏placeholder的样式，因为要和�
 
 #### Css
 
-```
+```css
 input{border: 1px solid #ccc;font-size: 14px;padding: 4px 0px;line-height: 24px;height: 24px;}
 .inputs{position: relative;}
 .inputs .iePlaceholder{position: absolute;top: 0px;font-size: 14px;top: 2px;left: 1px;color: #a9a9a9;cursor: text;display: none;}
@@ -65,7 +65,7 @@ input{border: 1px solid #ccc;font-size: 14px;padding: 4px 0px;line-height: 24px;
 
 我所用的js是基于jQuery的，所以在添加js前记得先引用jQuery哦。
 
-```
+```javascript
 function placeholder(el) {
 	//判断是否未显示placeholder
 	function isplaceholder() {
@@ -102,7 +102,7 @@ placeholder(".iePlaceholder");
 
 这个重置Css是我从一个前辈那里拿过来的，一些细节可以自己添加自己修改，所谓自己需要的才是最好的嘛。
 
-```
+```css
 /*初始化样式*/
 html { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
 body { line-height:1.4; }

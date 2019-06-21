@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "前端如何写一个精确的倒计时"
+title:  "如何写一个精确的倒计时"
 categories: JavaScript
 tags:  countdown JavaScript
 author: HyG
@@ -11,13 +11,14 @@ author: HyG
 
 关于写倒计时大家可能都都比较熟悉，使用 setTimeout 或 setInterval 就可以搞定。几秒钟或者几分钟的倒计时这样写没有问题，但是如果是长时间的倒计时，这样写就会不准确。如果用户修改了他的设备时间，这样的倒计时就没有意义了。今天就说说写一个精确的倒计时的方法。
 
-![](https://img.alicdn.com/tfs/TB18QnlOpXXXXcVXpXXXXXXXXXX-388-256.png)
+
 
 
 
 
 ## 原理
 
+![](https://img.alicdn.com/tfs/TB18QnlOpXXXXcVXpXXXXXXXXXX-388-256.png)
 众所周知 setTimeout 或者 setInterval 调用的时候会有微小的误差。有人做了一个 [demo](https://bl.ocks.org/kenpenn/raw/92ebaa71696b4c4c3acd672b1bb3f49a/) 来观察这个现象并对其做了修正。短时间的误差倒也可以接受，但是作为一个长时间的倒计时，误差累计就会导致倒计时不准确。
 
 因此我们可以在获取剩余时间的时候，每次 new 一个设备时间，因为设备时间的流逝相对是准确的，并且如果设备打开了网络时间同步，也会解决这个问题。
@@ -99,4 +100,3 @@ getServerTime((serverTime) => {
 
 在倒计时结束前的一段时间里，先请求好数据，倒计时结束后，再渲染页面。
 
-关于倒计时，如果你有什么更好的解决方案，欢迎评论交流。
