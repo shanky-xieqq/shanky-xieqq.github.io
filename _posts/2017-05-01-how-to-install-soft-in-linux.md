@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "如何在linux里安装软件[以Chrome为例]"
-categories: linux
-tags: linux
+categories: Linux
+tags: Linux
 ---
 
 * content

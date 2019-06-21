@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "纯CSS绘制三角形[各种角度]"
-categories: css
-tags: css
+categories: CSS
+tags: CSS
 ---
 
 * content
