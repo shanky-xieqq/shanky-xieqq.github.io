@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "centos7部署shadowsocks"
-categories: centos
-tags: centos shadowsocks linux
+categories: Linux
+tags: centos shadowsocks Linux
 ---
 
 * content

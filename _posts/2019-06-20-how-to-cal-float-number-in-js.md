@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "javascript浮点型数字运算的奇怪问题"
-categories: javascript
-tags: javascript
+categories: JavaScript
+tags: JavaScript
 ---
 
 * content
