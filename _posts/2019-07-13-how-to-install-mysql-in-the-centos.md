@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "如何在Linux(centos)中安装并配置mysql"
+title:  "如何在Linux[Centos]中安装并配置mysql"
 categories: Linux
 tags: Linux ssh
 ---
@@ -31,18 +31,42 @@ tags: Linux ssh
 
 * `wget '拷贝的链接'`下载当前文件到centos服务器，这里选择的是mysql8.x版（这里有个坑后面会说到）    
 
-* 之后按照官网的教程`sudo yum localinstall platform-and-version-specific-package-name.rpm`（`localinstall platform-and-version-specific-package-name`就是你当前包的名字）      
+* 之后按照官网的教程      
 
-* `sudo yum install mysql-community-server`等待它安装完成就好啦      
+```shell
+
+sudo yum localinstall platform-and-version-specific-package-name.rpm
+
+```
+
+* `localinstall platform-and-version-specific-package-name` 就是你当前包的名字
+
+```shell
+
+sudo yum install mysql-community-server
+
+```
+
+* 等待它安装完成就好啦      
 
 
 ### 启动      
 
-* `sudo service mysqld start`      
+```shell
+
+sudo service mysqld start
+
+```
 
 #### 坑1   
 
-* 这里因为我所购买的是盖中盖版服务器，1核0.5G的（没办法，穷），所以导致每次在start的时候都是报`Job for mysqld.service failed because the control process exited with error code. See "systemctl status mysqld.service" and "journalctl -xe" for details.`       
+* 这里因为我所购买的是盖中盖版服务器，1核0.5G的（没办法，穷），所以导致每次在start的时候都是      
+
+```shell
+
+Job for mysqld.service failed because the control process exited with error code. See "systemctl status mysqld.service" and "journalctl -xe" for details.
+
+```       
 
 * 再看`systemctl status mysqld.service`就会有个大大的`Active: failed`摆在那里
 
