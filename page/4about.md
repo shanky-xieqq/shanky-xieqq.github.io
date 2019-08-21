@@ -12,14 +12,14 @@ type: page
 ## 个人简介
 
 * 秦小宅[Shanky]  /  1993年1月 / 水瓶座 / 深圳
-* 爱好：动漫/运动/游戏/计算机软硬件/网络布局
+* 爱好：动漫 / 运动 / 游戏 / 计算机软硬件 / 网络布局
 * 梦想：非常喜欢科幻片，期待“贾维斯”时代，期待能为未来的信息化科技化时代贡献微薄之力。
 
 
 ## 技能清单
 
 * 前端基础：HTML/CSS/Javascript/Ajax/jQuery       
-* 前端框架：Vue/Bootstrap/Angular/Mui/Mpvue        
+* 前端框架：Vue/Bootstrap/Angular/Mpx/Uniapp/Mpvue        
 * 前端工具：webPack/Gulp/vue-cli/SaSS/Less         
 * UI设计：PhotoShop/Sketch/Illustrator/蓝湖          
 * 版本管理：Git/Svn        
@@ -28,6 +28,7 @@ type: page
 
 ## 职业生涯
 
+* 2019.07  入职深圳市中创区块科技有限公司
 * 2017.12  入职深圳市致宇天承科技有限公司
 * 2016.06  入职深圳市中企工联保家电服务有限公司
 * 2016.03  入职深圳市零边际网络科技有限公司
