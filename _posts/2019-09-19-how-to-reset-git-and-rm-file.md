@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "git撤销commit错误reset后的恢复以及忽略已被纳入版本管理的文件"
+title:  "git撤销commit/错误reset后恢复/忽略已被纳入版本管理的文件"
 categories: Git
 tags: Git
 ---
