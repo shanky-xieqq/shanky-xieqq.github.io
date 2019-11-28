@@ -44,7 +44,7 @@ location /xx/xx/ {
 附上官方vue-router的说明：(https://router.vuejs.org/zh-cn/essentials/history-mode.html)[https://router.vuejs.org/zh-cn/essentials/history-mode.html]
 
 
-### 另外可以空白方案
+### 另外一个空白方案
 
 
 vue打包后发布在nginx下，页面加载了js但是页面显示空白
