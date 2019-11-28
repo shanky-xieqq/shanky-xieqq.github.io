@@ -24,7 +24,7 @@ tags: 脚手架 vue webpack
 
 结合Vue的异步组件再结合webpack的代码分割，我们可以轻松的实现路由懒加载。
 
-** ️vue-cli3模式就使用了Babel，我们需要添加 `syntax-dynamic-import` 插件，才能使 Babel 可以正确地解析语法。
+* ️vue-cli3模式就使用了Babel，我们需要添加 `syntax-dynamic-import` 插件，才能使 Babel 可以正确地解析语法。
 
 
 ```js
@@ -131,9 +131,9 @@ module.exports = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 ```
 
-^^^ 如果使用了饿了么的element，不要使用beta版CDN，不然在日期组件上会遇到坑， 建议使用自家或者收费的CDN，保证CDN的可靠性
+* 如果使用了饿了么的element，不要使用beta版CDN，不然在日期组件上会遇到坑， 建议使用自家或者收费的CDN，保证CDN的可靠性
 
-^^^ 推荐个好用的CND：[https://cdnjs.com/](https://cdnjs.com/)
+* 推荐个好用的CND：[https://cdnjs.com/](https://cdnjs.com/)
 
 现在再build后文件大小和访问速度都再次进行了提升，通过CDN加载整个文档速度已经接近1秒。
 
