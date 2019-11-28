@@ -38,7 +38,7 @@ yarn global add @vue/cli
 
 配置文件需要自己写一个vue.config.js
 
-可以参考官方文档：(https://cli.vuejs.org/zh/config/#vue-config-js)[https://cli.vuejs.org/zh/config/#vue-config-js]
+可以参考官方文档：[https://cli.vuejs.org/zh/config/#vue-config-js](https://cli.vuejs.org/zh/config/#vue-config-js)
 
 
 ### 环境配置
