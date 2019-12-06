@@ -26,6 +26,11 @@ tags: Linux nginx Git
 `vim /etc/gitlab/gitlab.rb`
 
 
+找到并设置`nginx['enable']false`
+
+然后新增nginx配置
+
+
 ```shell
 upstream gitlab {
   server unix:/var/opt/gitlab/gitlab-workhorse/socket;
