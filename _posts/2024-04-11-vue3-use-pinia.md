@@ -34,7 +34,7 @@ const store = createPinia();
 createApp(App).use(router).use(store).mount('#app');
 ```
 
-在 `index.ts`` 中使用 Pinia，通过 `defineStore API` 创建 Store，传入的第一个参数是唯一的，作为该 Store 的唯一标识符：
+在 `index.ts` 中使用 Pinia，通过 `defineStore API` 创建 Store，传入的第一个参数是唯一的，作为该 Store 的唯一标识符：
 
 ```typescript
 import { defineStore } from 'pinia';
