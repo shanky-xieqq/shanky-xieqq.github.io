@@ -1,6 +1,20 @@
-# Vue3 引入 Pinia
+---
+layout: post
+title:  "Vue3学习之如何引入Pinia"
+categories: vue
+tags: Javascript Vue
+---
 
-原文链接：[CSDN博客](https://blog.csdn.net/qq_44737915/article/details/129017774)
+* content
+{:toc}
+
+Vue3学习之如何引入Pinia
+
+
+
+
+
+
 
 ## 一、引入Pinia
 

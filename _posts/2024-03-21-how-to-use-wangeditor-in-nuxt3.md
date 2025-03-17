@@ -5,9 +5,16 @@ categories: vue
 tags: Javascript Vue
 ---
 
-# Nuxt3 整合 WangEditor
+* content
+{:toc}
 
 在开发过程中，我们经常需要使用富文本编辑器来提升用户体验。本文将介绍如何在 Nuxt3 项目中整合 WangEditor 富文本编辑器。
+
+
+
+
+
+
 
 ## 1. 创建插件文件
 
