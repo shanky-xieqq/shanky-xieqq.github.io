@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Vue3学习之如何引入Pinia"
-categories: vue
+categories: Vue
 tags: Javascript Vue
 ---
 

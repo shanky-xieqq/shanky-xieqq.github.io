@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Nuxt3 整合 WangEditor"
-categories: vue
+categories: Vue
 tags: Javascript Vue
 ---
 
