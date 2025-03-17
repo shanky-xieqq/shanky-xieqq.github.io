@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "让jekyll服务可以在局域网中访问"
-categories: jekyll
-tags: jekyll
+categories: Jekyll
+tags: Jekyll
 ---
 
 * content

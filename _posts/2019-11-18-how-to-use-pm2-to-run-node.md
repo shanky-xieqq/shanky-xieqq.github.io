@@ -2,7 +2,7 @@
 layout: post
 title:  "如何使用PM2运行node.js服务"
 categories: Linux
-tags: node Linux centos
+tags: Node Linux Centos
 ---
 
 * content

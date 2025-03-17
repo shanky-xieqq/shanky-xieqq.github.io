@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "如何使用vant组件中的PullRefresh和List"
-categories: vue
-tags: vue vant
+categories: Vue
+tags: Vue Vant
 ---
 
 * content

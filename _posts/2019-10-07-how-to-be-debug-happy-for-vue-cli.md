@@ -2,7 +2,7 @@
 layout: post
 title:  "Vue-cli3在vsCode下愉快的调试"
 categories: vue
-tags: vue Vue 脚手架 调试工具
+tags: Vue 脚手架 调试工具
 ---
 
 * content

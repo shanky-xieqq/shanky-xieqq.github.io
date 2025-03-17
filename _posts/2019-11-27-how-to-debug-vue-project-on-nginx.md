@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "vue-cli项目在nginx下子页面刷新404"
-categories: nginx
-tags: nginx Linux vue
+categories: Nginx
+tags: Nginx Linux Vue
 ---
 
 * content

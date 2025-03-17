@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "在vue项目中封装的返回顶部组件"
-categories: vue
-tags: vue
+categories: Vue
+tags: Vue
 ---
 
 * content

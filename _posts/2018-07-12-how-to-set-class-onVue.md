@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "vue根据data中的值设置class和style"
-categories: vue
-tags: Javascript vue
+categories: Vue
+tags: Javascript Vue
 ---
 
 * content

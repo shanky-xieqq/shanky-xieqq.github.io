@@ -2,7 +2,7 @@
 layout: post
 title:  "Gitlab使用外部nginx"
 categories: Linux
-tags: Linux nginx Git
+tags: Linux Nginx Git
 ---
 
 * content

@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "如何在原生微信小程序中使image图片自适应"
-categories: weApp
-tags: 微信小程序 minApp
+categories: WeApp
+tags: 微信小程序 MinApp
 ---
 
 * content

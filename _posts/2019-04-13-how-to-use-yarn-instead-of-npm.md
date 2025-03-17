@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "webpack项目中使用yarn代替npm安装依赖包"
-categories: vue
-tags: vue webPack
+categories: Vue
+tags: Vue WebPack
 ---
 
 * content

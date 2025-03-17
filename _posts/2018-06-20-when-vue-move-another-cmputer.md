@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "vue项目移植报错以及解决办法"
-categories: vue
-tags: Linux vue
+categories: Vue
+tags: Linux Vue
 ---
 
 * content

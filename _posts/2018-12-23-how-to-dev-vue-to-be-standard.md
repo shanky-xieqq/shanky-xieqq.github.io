@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "VUEJS开发规范"
-categories: vue
-tags: vue
+categories: Vue
+tags: Vue
 ---
 
 * content

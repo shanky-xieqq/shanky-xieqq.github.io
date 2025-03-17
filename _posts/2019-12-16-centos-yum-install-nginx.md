@@ -2,7 +2,7 @@
 layout: post
 title:  "Centos7用yum安装并配置nginx"
 categories: Linux
-tags: Linux nginx
+tags: Linux Nginx
 ---
 
 * content

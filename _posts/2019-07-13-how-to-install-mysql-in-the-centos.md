@@ -2,7 +2,7 @@
 layout: post
 title:  "如何在Linux[Centos]中安装并配置mysql"
 categories: Linux
-tags: Linux ssh
+tags: Linux Ssh
 ---
 
 * content

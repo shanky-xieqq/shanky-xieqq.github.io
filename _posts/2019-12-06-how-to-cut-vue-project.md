@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "vue-cli3打包太大首页加载过时间长的解决方案"
-categories: vue
-tags: 脚手架 vue webpack
+categories: Vue
+tags: 脚手架 Vue webpack
 ---
 
 * content

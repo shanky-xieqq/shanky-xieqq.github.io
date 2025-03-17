@@ -2,7 +2,7 @@
 layout: post
 title:  "centos ssh终端下高亮显示git分支名"
 categories: Linux
-tags: Linux ssh git
+tags: Linux Ssh Git
 ---
 
 * content

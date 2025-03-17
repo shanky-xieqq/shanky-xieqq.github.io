@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "如何在mpvue中正确的引用小程序的原生自定义组件"
-categories: weApp
-tags: 微信小程序 minApp Vue mpVue
+categories: WeApp
+tags: 微信小程序 MinApp Vue MpVue
 ---
 
 * content

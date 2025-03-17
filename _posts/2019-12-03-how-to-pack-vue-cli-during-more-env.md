@@ -2,7 +2,7 @@
 layout: post
 title:  "vue-cli3的多环境打包配置"
 categories: vue
-tags: 脚手架 vue webpack
+tags: 脚手架 Vue Webpack
 ---
 
 * content

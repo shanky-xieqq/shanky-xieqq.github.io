@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "如何利用nvm版本管理器配置Ubuntu的node环境"
-categories: node
-tags:  node JavaScript Linux
+categories: Node
+tags:  Node JavaScript Linux
 ---
 
 * content

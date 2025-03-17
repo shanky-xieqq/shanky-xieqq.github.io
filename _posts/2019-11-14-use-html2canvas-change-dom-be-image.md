@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "vue 使用html2canvas将DOM转化为图片"
-categories: vue
-tags: vue
+categories: Vue
+tags: Vue
 ---
 
 * content

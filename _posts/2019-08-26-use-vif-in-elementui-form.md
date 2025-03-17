@@ -2,7 +2,7 @@
 layout: post
 title:  "element-ui表单渲染v-if组件验证时报错"
 categories: Linux
-tags: vue element-ui
+tags: vue Element-ui
 ---
 
 * content

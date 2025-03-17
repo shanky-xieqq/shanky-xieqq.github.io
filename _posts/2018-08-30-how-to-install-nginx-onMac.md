@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "如何在macOS中安装并配置nginx"
-categories: nginx
-tags: macOS hack linux
+categories: Nginx
+tags: MacOS Hack Linux
 ---
 
 * content
