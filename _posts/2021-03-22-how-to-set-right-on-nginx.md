@@ -269,7 +269,7 @@ LVS 的工作流程大致如下：
 实例配置如下：
 
 ```nginx
-# 反向代理配置upstream server_czzj {    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;} server {    listen 8888;    server_name www.shanky.cn;     access_log  /var/log/nginx/access.log;    error_log  /var/log/nginx/error.log;     location / {            index index.html index.htm;            proxy_pass http://server_czzj; # 指定反向代理服务器列表    }}
+# 反向代理配置upstream server_shanky {    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;} server {    listen 8888;    server_name www.shanky.cn;     access_log  /var/log/nginx/access.log;    error_log  /var/log/nginx/error.log;     location / {            index index.html index.htm;            proxy_pass http://server_shanky; # 指定反向代理服务器列表    }}
 ```
 
 刷新同一地址，请求的服务不同。
@@ -285,7 +285,7 @@ LVS 的工作流程大致如下：
 配置示例：
 
 ```nginx
-# 反向代理配置upstream server_czzj {    server www.shanky.cn:5001 weight=1; # 默认为 1，可不配置    server www.shanky.cn:5021 weight=3;    server www.shanky.cn:5031 weight=6;}
+# 反向代理配置upstream server_shanky {    server www.shanky.cn:5001 weight=1; # 默认为 1，可不配置    server www.shanky.cn:5021 weight=3;    server www.shanky.cn:5031 weight=6;}
 ```
 
 解释：例如示例中的权重总量为 10，那么如果 nginx 接到十个请求，那么三个服务就分别接到 1、3、6 个请求。但是首次请求进入那个服务是不固定的，权重为 6 的服务概率最大。
@@ -293,7 +293,7 @@ LVS 的工作流程大致如下：
 实际效果就类似于：（但是顺序是随机的）
 
 ```nginx
-# 反向代理配置upstream server_czzj {    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5021;    server www.shanky.cn:5021;    server www.shanky.cn:5031;    server www.shanky.cn:5031;    server www.shanky.cn:5031;    server www.shanky.cn:5031;    server www.shanky.cn:5031;    server www.shanky.cn:5031;}
+# 反向代理配置upstream server_shanky {    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5021;    server www.shanky.cn:5021;    server www.shanky.cn:5031;    server www.shanky.cn:5031;    server www.shanky.cn:5031;    server www.shanky.cn:5031;    server www.shanky.cn:5031;    server www.shanky.cn:5031;}
 ```
 
 此策略比较适合**服务器的硬件配置差别比较大**的情况。
@@ -311,7 +311,7 @@ Nginx 使用的 Jenkins hash 函数对输入数据（如 IP 地址）进行哈�
 实例配置：
 
 ```nginx
-# 反向代理配置upstream server_czzj {    ip_hash; # 保证每个客户端访问同一个后端服务    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
+# 反向代理配置upstream server_shanky {    ip_hash; # 保证每个客户端访问同一个后端服务    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
 ```
 
 _注意：在 nginx 版本 1.3.1 之前，不能在 ip\_hash 中使用权重（weight）。_
@@ -329,7 +329,7 @@ _当有服务器需要剔除，必须**手动进行停服操作**。_
 轮询算法是把请求平均的转发给各个后端，使它们的负载大致相同；但是，**有些请求占用的时间很长，会导致其所在的后端负载较高**。这种情况下，least\_conn 这种方式就可以达到更好的负载均衡效果。
 
 ```nginx
-# 反向代理配置upstream server_czzj {    least_conn; # 把新的请求，转发到当前连接数最少的服务    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
+# 反向代理配置upstream server_shanky {    least_conn; # 把新的请求，转发到当前连接数最少的服务    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
 ```
 
 **此负载均衡策略适合请求处理时间长短不一造成服务器过载的情况。**
@@ -375,7 +375,7 @@ _注意：如果源文件找不到了，需要重新下载一个相同版本安�
 **配置示例：**
 
 ```nginx
-# 反向代理配置upstream server_czzj {    fair; # 按照最短响应时间分配请求    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
+# 反向代理配置upstream server_shanky {    fair; # 按照最短响应时间分配请求    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
 ```
 
 #### 2.5.2 make 执行时报错：‘ngx\_http\_upstream\_srv\_conf\_t’ has no member named ‘default\_port’
@@ -431,7 +431,7 @@ _注意：如果源文件找不到了，需要重新下载一个相同版本安�
 **配置示例：**
 
 ```nginx
-# 反向代理配置upstream server_czzj {    hash $request_uri; # 相同的 url 定向到同一后端服务器    # hash $remote_addr; # 也可根据客户端 IP 映射    # hash $args; # 也可根据客户端携带的参数进行映射    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
+# 反向代理配置upstream server_shanky {    hash $request_uri; # 相同的 url 定向到同一后端服务器    # hash $remote_addr; # 也可根据客户端 IP 映射    # hash $args; # 也可根据客户端携带的参数进行映射    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
 ```
 
 配置完成后就可以实现，相同的 url 请求到同一个服务。
@@ -477,5 +477,5 @@ _注意：如果源文件找不到了，需要重新下载一个相同版本安�
 **配置示例：**
 
 ```nginx
-# 反向代理配置upstream server_czzj {    consistent_hash $request_uri; # 一致性哈希算法    # consistent_hash $remote_addr; # 也可根据客户端 IP 映射    # consistent_hash $args; # 也可根据客户端携带的参数进行映射    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
+# 反向代理配置upstream server_shanky {    consistent_hash $request_uri; # 一致性哈希算法    # consistent_hash $remote_addr; # 也可根据客户端 IP 映射    # consistent_hash $args; # 也可根据客户端携带的参数进行映射    server www.shanky.cn:5001;    server www.shanky.cn:5021;    server www.shanky.cn:5031;}
 ```
