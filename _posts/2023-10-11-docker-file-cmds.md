@@ -46,9 +46,9 @@ tags: Docker
 三、典型使用场景示例
 ----------
 
-### 示例1：构建 Node.js 应用镜像
+### 示例1：构建 Node.js 应用镜像s
 
-[![Image 13: 复制代码](https://assets.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
+
 
 \# 使用官方 Node.js 镜像作为基础
 FROM node:18\-alpine
@@ -69,7 +69,6 @@ EXPOSE 3000
 # 定义启动命令
 CMD \["npm", "start"\]
 
-[![Image 14: 复制代码](https://assets.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 构建命令：
 
@@ -81,7 +80,6 @@ docker run -p 3000:3000 my-node-app
 
 ### 示例2：Python Web 服务镜像
 
-[![Image 15: 复制代码](https://assets.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 \# 使用 Python 官方镜像
 FROM python:3.11\-slim
@@ -108,7 +106,6 @@ COPY . .
 # 启动命令
 CMD \["gunicorn", "--bind", "0.0.0.0:8000", "myapp.wsgi"\]
 
-[![Image 16: 复制代码](https://assets.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 2.构建优化技巧：
 
@@ -121,7 +118,6 @@ RUN apt-get update \\
 
 3.多阶段构建（减小最终镜像体积）：
 
-[![Image 17: 复制代码](https://assets.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 \# 构建阶段
 FROM golang:1.21 as builder
@@ -134,7 +130,6 @@ FROM alpine:latest
 COPY \--from\=builder /app/myapp /app/
 CMD \["/app/myapp"\]
 
-[![Image 18: 复制代码](https://assets.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 四、关键注意事项
 --------
