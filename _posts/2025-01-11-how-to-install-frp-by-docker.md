@@ -74,11 +74,8 @@ $ docker run --name frps \
 
 启动成功后可以通过之前配置的控制面板检查 frps 的状态，之前配置的是 7500 端口，这里进行访问测试，需要注意该容器是使用 host 网桥启动的，如果服务器中启用了防火墙需要放行之前配置的 7000 和 7500 端口
 
-[![Image 12: image](https://img2024.cnblogs.com/blog/1772049/202503/1772049-20250315175500823-1446760815.png)](https://img2024.cnblogs.com/blog/1772049/202503/1772049-20250315175500823-1446760815.png)
 
-[![Image 13: image](https://img2024.cnblogs.com/blog/1772049/202503/1772049-20250315175500746-339203319.png)](https://img2024.cnblogs.com/blog/1772049/202503/1772049-20250315175500746-339203319.png)
-
-客户端搭建 frpc[#](https://www.cnblogs.com/hanzhe/p/18773973#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%90%AD%E5%BB%BA-frpc)
+客户端搭建 frpc
 -----------------------------------------------------------------------------------------------------------
 
 如果你是 win 或移动端用户，请自行[访问发行页面](https://github.com/fatedier/frp/releases/tag/v0.61.2)下载合适的版本以及客户端软件，这里仍然以 Linux Docker 环境举例搭建 frpc 客户端
@@ -128,7 +125,7 @@ $ docker run --name frpc \
 
 同之前一样，日志文件是空白的，只要容器保持运行没有中途停止就算运行成功了
 
-### 内网穿透SSH[#](https://www.cnblogs.com/hanzhe/p/18773973#%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8Fssh)
+### 内网穿透SSH
 
 先写一个 SSH 内网穿透的配置，将本机的 22 端口映射到远程的 8001 端口，编辑客户端配置文件`frpc.toml`在原基础上添加内容
 
@@ -157,9 +154,7 @@ remotePort = 8001
 
 内网穿透配置完成后`docker restart frpc`重启容器，就可以使用公网IP在外地SSH远程本机了，控制面板看到连接信息
 
-[![Image 14: image](https://img2024.cnblogs.com/blog/1772049/202503/1772049-20250315175500824-1216591892.png)](https://img2024.cnblogs.com/blog/1772049/202503/1772049-20250315175500824-1216591892.png)
-
-### 内网穿透HTTP[#](https://www.cnblogs.com/hanzhe/p/18773973#%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8Fhttp)
+### 内网穿透HTTP
 
 FRP 支持 HTTP/HTTPS 协议的内网穿透，但是使用 HTTP 类型的内网穿透不是很方便，还需要配置一个域名，HTTPS 则更麻烦一些，还需要配置 SSL 证书，这里选择继续使用基于 TCP 协议的网站内网穿透
 

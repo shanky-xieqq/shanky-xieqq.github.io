@@ -108,8 +108,6 @@ const drawCharts=()=>{
 </style>
 ```
 
-![Image 12](https://img2024.cnblogs.com/blog/1425695/202503/1425695-20250303091511106-1317487382.jpg)
-
 #### 实际情况:this.dom.getContext is not a function
 
 报错信息: Uncaught (in promise) TypeError: this.dom.getContext is not a function  
@@ -133,8 +131,6 @@ const drawCharts=()=>{
   ...代码爆出不变
 }
 ```
-
-![Image 13](https://img2024.cnblogs.com/blog/1425695/202503/1425695-20250303091522065-1341766319.jpg)
 
 #### 为啥还会报错:Error: Initialize failed: invalid dom.
 
@@ -200,8 +196,6 @@ const drawCharts=()=>{
 </style>
 ```
 
-![Image 14](https://img2024.cnblogs.com/blog/1425695/202503/1425695-20250303091529272-1886996341.jpg)
-
 #### DOM元素已经渲染完成,useTemplateRef拿到DOM元素
 
 ```xml
@@ -226,8 +220,6 @@ const getNodeHandler= () =>{
 }
 </script>
 ```
-
-![Image 15](https://img2024.cnblogs.com/blog/1425695/202503/1425695-20250303091537654-1725939369.png)
 
 当然我们除了使用 useTemplateRef 来获取DOM元素  
 还可以使用 ref 来获取DOM元素
@@ -343,8 +335,6 @@ const chartRedraw = ()=> {
 }
 </script>
 ```
-
-![Image 16](https://img2024.cnblogs.com/blog/1425695/202503/1425695-20250303091549070-541678117.jpg)
 
 #### 缩放echarts出现:Cannot read properties of undefined (reading 'type')
 

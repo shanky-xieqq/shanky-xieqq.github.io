@@ -109,7 +109,6 @@ import sitemap from './static/sitemap';
 
 ##### 第五步:要去谷歌搜索中心添加自己的站点地图
 
-![Image 17: 在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/17a77b1add5ac18a5b3bee34b2b272f4.png#pic_center)
 
 ##### 第六步:查看效果
 

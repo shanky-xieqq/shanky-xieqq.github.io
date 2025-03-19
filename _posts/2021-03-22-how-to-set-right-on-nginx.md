@@ -81,7 +81,6 @@ DNS 负载均衡的工作原理就是：**基于 DNS 查询缓存，按照负载
 
 如下图，针对服务集群中的两个服务地址 127.0.0.1、127.0.0.2，在 DNS 服务器中都配置为指向域名 www.xxx.com，当用户通过域名访问时，请求到 DNS 服务器，然后随机返回一个实际请求的服务器 IP 地址。
 
-**![Image 14](https://img2024.cnblogs.com/blog/1868241/202503/1868241-20250310135638180-353314104.png)**
 
 优点：
 
@@ -105,7 +104,6 @@ HTTP 负载均衡是基于 HTTP 重定向实现的。HTTP 负载均衡属于七�
 
 HTTP 重定向原理是：根据用户的 HTTP 请求计算出一个真实的服务器地址，将该服务器地址写入 HTTP 重定向响应中，返回给浏览器，由浏览器重新进行访问。
 
-![Image 15](https://img2024.cnblogs.com/blog/1868241/202503/1868241-20250310141452044-457542813.png)
 
 优点：
 
@@ -133,7 +131,6 @@ HTTP 重定向原理是：根据用户的 HTTP 请求计算出一个真实的服
 
 如下图，看下 Nginx 如何实现负载均衡：
 
-![Image 16](https://img2024.cnblogs.com/blog/1868241/202503/1868241-20250310141854205-554807687.png)
 
 首先，在代理服务器上设定好负载均衡规则。
 
@@ -161,7 +158,6 @@ HTTP 重定向原理是：根据用户的 HTTP 请求计算出一个真实的服
 
 IP 负载均衡是在网络层通过修改请求目的地址进行负载均衡。
 
-![Image 17](https://img2024.cnblogs.com/blog/1868241/202503/1868241-20250310142811210-149277034.png)
 
 如上图，大致流程为：
 
@@ -176,7 +172,6 @@ IP 负载均衡在内核进程完成数据分发，**较反向代理负载均衡
 
 数据链路层负载均衡是指，**在通信协议的数据链路层修改 mac 地址**进行负载均衡。
 
-![Image 18](https://img2024.cnblogs.com/blog/1868241/202503/1868241-20250310150606426-1558045509.png)
 
 在 Linux 平台上最好的链路层负载均衡开源产品是 LVS (Linux Virtual Server)。
 
@@ -344,9 +339,6 @@ _当有服务器需要剔除，必须**手动进行停服操作**。_
 
 1）先下载第三方包：[https://github.com/gnosek/nginx-upstream-fair](https://github.com/gnosek/nginx-upstream-fair "https://github.com/gnosek/nginx-upstream-fair")
 
-文件很简单，如下图：
-
-![Image 20](https://img2024.cnblogs.com/blog/1868241/202503/1868241-20250314183822886-1621270948.png)
 
 需要将此文件夹放到 linux 系统中，本示例复制到路径：/usr/local/nginx-upstream-fair-master。
 
@@ -400,10 +392,6 @@ _参考：[https://blog.csdn.net/weixin\_46152207/article/details/121786162](htt
 
 1）先下载第三方包：[https://github.com/evanmiller/nginx\_upstream\_hash](https://github.com/evanmiller/nginx_upstream_hash "https://github.com/evanmiller/nginx_upstream_hash")
 
-文件很简单，如下图：
-
-![Image 21](https://img2024.cnblogs.com/blog/1868241/202503/1868241-20250317105132161-904634937.png)
-
 需要将此文件夹放到 linux 系统中，本示例复制到路径：/usr/local/nginx\_upstream\_hash-master。
 
 2）进入 nginx 源文件所在的文件夹（即 nginx 安装包解压后的文件夹），本示例的是：/usr/local/nginx-1.20.0。
@@ -448,7 +436,6 @@ _注意：如果源文件找不到了，需要重新下载一个相同版本安�
 
 文件很简单，如下图：
 
-![Image 22](https://img2024.cnblogs.com/blog/1868241/202503/1868241-20250317113652384-1402516390.png)
 
 需要将此文件夹放到 linux 系统中，**本示例复制到路径：/usr/local/ngx\_http\_consistent\_hash-master。**
 

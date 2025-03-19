@@ -40,7 +40,6 @@ tags: Vue
 // 使用组合式API重构import { useUserFetch } from './composables/userFetch'import { useTableFilter } from './composables/tableFilter' export default {  setup() {    const { users, fetchUsers } = useUserFetch()    const { filteredData, filters } = useTableFilter(users)        return { users, filteredData, filters, fetchUsers }  }}
 ```
 
-![Image 12](https://img2024.cnblogs.com/blog/3257203/202503/3257203-20250311220134975-1163672262.jpg)
 
 二、组合式API核心机制深度剖析（附完整代码）
 -----------------------
